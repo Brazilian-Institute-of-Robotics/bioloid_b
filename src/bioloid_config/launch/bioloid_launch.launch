@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Launch Pubs -->
+    <include file="$(find bioloid_config)/launch/bioloid_pubs.launch"/>
+    <!-- Launch Gazebo Spawn -->
+    <include file="$(find bioloid_config)/launch/bioloid_gazebo.launch"/>
+    <!-- Launch Controllers -->
+    <include file="$(find bioloid_config)/launch/bioloid_controllers.launch"/>
+    <!-- Launch Motion -->
+    <include file="$(find bioloid_config)/launch/bioloid_motion.launch"/>
+    
+</launch>

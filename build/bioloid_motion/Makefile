@@ -181,6 +181,51 @@ bioloid_motion_walk_test/fast:
 .PHONY : bioloid_motion_walk_test/fast
 
 # Convenience name for target.
+bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/rule
+
+# Convenience name for target.
+bioloid_motion_new_walk: bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/rule
+
+.PHONY : bioloid_motion_new_walk
+
+# fast build rule for target.
+bioloid_motion_new_walk/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/build
+.PHONY : bioloid_motion_new_walk/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/bioloid_utils.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_utils.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/bioloid_utils.dir/rule
+
+# Convenience name for target.
+bioloid_utils: bioloid_motion/CMakeFiles/bioloid_utils.dir/rule
+
+.PHONY : bioloid_utils
+
+# fast build rule for target.
+bioloid_utils/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_utils.dir/build.make bioloid_motion/CMakeFiles/bioloid_utils.dir/build
+.PHONY : bioloid_utils/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/bioloid_robot.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_robot.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/bioloid_robot.dir/rule
+
+# Convenience name for target.
+bioloid_robot: bioloid_motion/CMakeFiles/bioloid_robot.dir/rule
+
+.PHONY : bioloid_robot
+
+# fast build rule for target.
+bioloid_robot/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_robot.dir/build.make bioloid_motion/CMakeFiles/bioloid_robot.dir/build
+.PHONY : bioloid_robot/fast
+
+# Convenience name for target.
 bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/rule:
 	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/rule
 .PHONY : bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/rule
@@ -706,6 +751,21 @@ rosgraph_msgs_generate_messages_nodejs/fast:
 .PHONY : rosgraph_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
+bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir/rule
+
+# Convenience name for target.
+bioloid_motion_new_walk_test: bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir/rule
+
+.PHONY : bioloid_motion_new_walk_test
+
+# fast build rule for target.
+bioloid_motion_new_walk_test/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir/build
+.PHONY : bioloid_motion_new_walk_test/fast
+
+# Convenience name for target.
 bioloid_motion/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule:
 	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule
 .PHONY : bioloid_motion/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule
@@ -1155,6 +1215,87 @@ control_toolbox_gencfg/fast:
 	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/control_toolbox_gencfg.dir/build.make bioloid_motion/CMakeFiles/control_toolbox_gencfg.dir/build
 .PHONY : control_toolbox_gencfg/fast
 
+include/bioloid/bioloid_robot.o: include/bioloid/bioloid_robot.cpp.o
+
+.PHONY : include/bioloid/bioloid_robot.o
+
+# target to build an object file
+include/bioloid/bioloid_robot.cpp.o:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_robot.dir/build.make bioloid_motion/CMakeFiles/bioloid_robot.dir/include/bioloid/bioloid_robot.cpp.o
+.PHONY : include/bioloid/bioloid_robot.cpp.o
+
+include/bioloid/bioloid_robot.i: include/bioloid/bioloid_robot.cpp.i
+
+.PHONY : include/bioloid/bioloid_robot.i
+
+# target to preprocess a source file
+include/bioloid/bioloid_robot.cpp.i:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_robot.dir/build.make bioloid_motion/CMakeFiles/bioloid_robot.dir/include/bioloid/bioloid_robot.cpp.i
+.PHONY : include/bioloid/bioloid_robot.cpp.i
+
+include/bioloid/bioloid_robot.s: include/bioloid/bioloid_robot.cpp.s
+
+.PHONY : include/bioloid/bioloid_robot.s
+
+# target to generate assembly for a file
+include/bioloid/bioloid_robot.cpp.s:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_robot.dir/build.make bioloid_motion/CMakeFiles/bioloid_robot.dir/include/bioloid/bioloid_robot.cpp.s
+.PHONY : include/bioloid/bioloid_robot.cpp.s
+
+include/bioloid/bioloid_utils.o: include/bioloid/bioloid_utils.cpp.o
+
+.PHONY : include/bioloid/bioloid_utils.o
+
+# target to build an object file
+include/bioloid/bioloid_utils.cpp.o:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_utils.dir/build.make bioloid_motion/CMakeFiles/bioloid_utils.dir/include/bioloid/bioloid_utils.cpp.o
+.PHONY : include/bioloid/bioloid_utils.cpp.o
+
+include/bioloid/bioloid_utils.i: include/bioloid/bioloid_utils.cpp.i
+
+.PHONY : include/bioloid/bioloid_utils.i
+
+# target to preprocess a source file
+include/bioloid/bioloid_utils.cpp.i:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_utils.dir/build.make bioloid_motion/CMakeFiles/bioloid_utils.dir/include/bioloid/bioloid_utils.cpp.i
+.PHONY : include/bioloid/bioloid_utils.cpp.i
+
+include/bioloid/bioloid_utils.s: include/bioloid/bioloid_utils.cpp.s
+
+.PHONY : include/bioloid/bioloid_utils.s
+
+# target to generate assembly for a file
+include/bioloid/bioloid_utils.cpp.s:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_utils.dir/build.make bioloid_motion/CMakeFiles/bioloid_utils.dir/include/bioloid/bioloid_utils.cpp.s
+.PHONY : include/bioloid/bioloid_utils.cpp.s
+
+include/bioloid/bioloid_walk.o: include/bioloid/bioloid_walk.cpp.o
+
+.PHONY : include/bioloid/bioloid_walk.o
+
+# target to build an object file
+include/bioloid/bioloid_walk.cpp.o:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/include/bioloid/bioloid_walk.cpp.o
+.PHONY : include/bioloid/bioloid_walk.cpp.o
+
+include/bioloid/bioloid_walk.i: include/bioloid/bioloid_walk.cpp.i
+
+.PHONY : include/bioloid/bioloid_walk.i
+
+# target to preprocess a source file
+include/bioloid/bioloid_walk.cpp.i:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/include/bioloid/bioloid_walk.cpp.i
+.PHONY : include/bioloid/bioloid_walk.cpp.i
+
+include/bioloid/bioloid_walk.s: include/bioloid/bioloid_walk.cpp.s
+
+.PHONY : include/bioloid/bioloid_walk.s
+
+# target to generate assembly for a file
+include/bioloid/bioloid_walk.cpp.s:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/include/bioloid/bioloid_walk.cpp.s
+.PHONY : include/bioloid/bioloid_walk.cpp.s
+
 src/bioloid_motion_robot.o: src/bioloid_motion_robot.cpp.o
 
 .PHONY : src/bioloid_motion_robot.o
@@ -1263,6 +1404,33 @@ src/bioloid_motion_walk_test.cpp.s:
 	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/src/bioloid_motion_walk_test.cpp.s
 .PHONY : src/bioloid_motion_walk_test.cpp.s
 
+src/bioloid_walk_test.o: src/bioloid_walk_test.cpp.o
+
+.PHONY : src/bioloid_walk_test.o
+
+# target to build an object file
+src/bioloid_walk_test.cpp.o:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir/src/bioloid_walk_test.cpp.o
+.PHONY : src/bioloid_walk_test.cpp.o
+
+src/bioloid_walk_test.i: src/bioloid_walk_test.cpp.i
+
+.PHONY : src/bioloid_walk_test.i
+
+# target to preprocess a source file
+src/bioloid_walk_test.cpp.i:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir/src/bioloid_walk_test.cpp.i
+.PHONY : src/bioloid_walk_test.cpp.i
+
+src/bioloid_walk_test.s: src/bioloid_walk_test.cpp.s
+
+.PHONY : src/bioloid_walk_test.s
+
+# target to generate assembly for a file
+src/bioloid_walk_test.cpp.s:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir/src/bioloid_walk_test.cpp.s
+.PHONY : src/bioloid_walk_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1272,6 +1440,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... bioloid_motion_walk_test"
+	@echo "... bioloid_motion_new_walk"
+	@echo "... bioloid_utils"
+	@echo "... bioloid_robot"
 	@echo "... install/strip"
 	@echo "... bioloid_motion_robot"
 	@echo "... sensor_msgs_generate_messages_nodejs"
@@ -1310,6 +1481,7 @@ help:
 	@echo "... controller_manager_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_eus"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
+	@echo "... bioloid_motion_new_walk_test"
 	@echo "... control_msgs_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... roscpp_generate_messages_py"
@@ -1342,6 +1514,15 @@ help:
 	@echo "... actionlib_generate_messages_nodejs"
 	@echo "... dynamic_reconfigure_generate_messages_nodejs"
 	@echo "... control_toolbox_gencfg"
+	@echo "... include/bioloid/bioloid_robot.o"
+	@echo "... include/bioloid/bioloid_robot.i"
+	@echo "... include/bioloid/bioloid_robot.s"
+	@echo "... include/bioloid/bioloid_utils.o"
+	@echo "... include/bioloid/bioloid_utils.i"
+	@echo "... include/bioloid/bioloid_utils.s"
+	@echo "... include/bioloid/bioloid_walk.o"
+	@echo "... include/bioloid/bioloid_walk.i"
+	@echo "... include/bioloid/bioloid_walk.s"
 	@echo "... src/bioloid_motion_robot.o"
 	@echo "... src/bioloid_motion_robot.i"
 	@echo "... src/bioloid_motion_robot.s"
@@ -1354,6 +1535,9 @@ help:
 	@echo "... src/bioloid_motion_walk_test.o"
 	@echo "... src/bioloid_motion_walk_test.i"
 	@echo "... src/bioloid_motion_walk_test.s"
+	@echo "... src/bioloid_walk_test.o"
+	@echo "... src/bioloid_walk_test.i"
+	@echo "... src/bioloid_walk_test.s"
 .PHONY : help
 
 

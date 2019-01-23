@@ -116,7 +116,7 @@ if(NOT "include " STREQUAL " ")
   endforeach()
 endif()
 
-set(libraries "bioloid_motion_robot;bioloid_motion_utils")
+set(libraries "bioloid_motion_robot;bioloid_motion_utils;bioloid_robot;bioloid_utils")
 foreach(library ${libraries})
   # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")

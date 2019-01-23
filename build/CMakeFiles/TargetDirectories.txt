@@ -46,6 +46,9 @@
 /home/teo/Documentos/nelso/build/bioloid_motion/CMakeFiles/rebuild_cache.dir
 /home/teo/Documentos/nelso/build/bioloid_motion/CMakeFiles/edit_cache.dir
 /home/teo/Documentos/nelso/build/bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir
+/home/teo/Documentos/nelso/build/bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir
+/home/teo/Documentos/nelso/build/bioloid_motion/CMakeFiles/bioloid_utils.dir
+/home/teo/Documentos/nelso/build/bioloid_motion/CMakeFiles/bioloid_robot.dir
 /home/teo/Documentos/nelso/build/bioloid_motion/CMakeFiles/install/strip.dir
 /home/teo/Documentos/nelso/build/bioloid_motion/CMakeFiles/bioloid_motion_robot.dir
 /home/teo/Documentos/nelso/build/bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir
@@ -84,6 +87,7 @@
 /home/teo/Documentos/nelso/build/bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir
 /home/teo/Documentos/nelso/build/bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_eus.dir
 /home/teo/Documentos/nelso/build/bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir
+/home/teo/Documentos/nelso/build/bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir
 /home/teo/Documentos/nelso/build/bioloid_motion/CMakeFiles/control_msgs_generate_messages_cpp.dir
 /home/teo/Documentos/nelso/build/bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir
 /home/teo/Documentos/nelso/build/bioloid_motion/CMakeFiles/roscpp_generate_messages_py.dir

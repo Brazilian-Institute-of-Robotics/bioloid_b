@@ -309,6 +309,45 @@ bioloid_motion_walk_test/fast:
 .PHONY : bioloid_motion_walk_test/fast
 
 #=============================================================================
+# Target rules for targets named bioloid_motion_new_walk
+
+# Build rule for target.
+bioloid_motion_new_walk: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bioloid_motion_new_walk
+.PHONY : bioloid_motion_new_walk
+
+# fast build rule for target.
+bioloid_motion_new_walk/fast:
+	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/build
+.PHONY : bioloid_motion_new_walk/fast
+
+#=============================================================================
+# Target rules for targets named bioloid_utils
+
+# Build rule for target.
+bioloid_utils: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bioloid_utils
+.PHONY : bioloid_utils
+
+# fast build rule for target.
+bioloid_utils/fast:
+	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_utils.dir/build.make bioloid_motion/CMakeFiles/bioloid_utils.dir/build
+.PHONY : bioloid_utils/fast
+
+#=============================================================================
+# Target rules for targets named bioloid_robot
+
+# Build rule for target.
+bioloid_robot: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bioloid_robot
+.PHONY : bioloid_robot
+
+# fast build rule for target.
+bioloid_robot/fast:
+	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_robot.dir/build.make bioloid_motion/CMakeFiles/bioloid_robot.dir/build
+.PHONY : bioloid_robot/fast
+
+#=============================================================================
 # Target rules for targets named bioloid_motion_robot
 
 # Build rule for target.
@@ -764,6 +803,19 @@ rosgraph_msgs_generate_messages_nodejs/fast:
 .PHONY : rosgraph_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
+# Target rules for targets named bioloid_motion_new_walk_test
+
+# Build rule for target.
+bioloid_motion_new_walk_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bioloid_motion_new_walk_test
+.PHONY : bioloid_motion_new_walk_test
+
+# fast build rule for target.
+bioloid_motion_new_walk_test/fast:
+	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir/build
+.PHONY : bioloid_motion_new_walk_test/fast
+
+#=============================================================================
 # Target rules for targets named control_msgs_generate_messages_cpp
 
 # Build rule for target.
@@ -1177,6 +1229,9 @@ help:
 	@echo "... gtest_main"
 	@echo "... _catkin_empty_exported_target"
 	@echo "... bioloid_motion_walk_test"
+	@echo "... bioloid_motion_new_walk"
+	@echo "... bioloid_utils"
+	@echo "... bioloid_robot"
 	@echo "... bioloid_motion_robot"
 	@echo "... sensor_msgs_generate_messages_nodejs"
 	@echo "... sensor_msgs_generate_messages_lisp"
@@ -1212,6 +1267,7 @@ help:
 	@echo "... controller_manager_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_eus"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
+	@echo "... bioloid_motion_new_walk_test"
 	@echo "... control_msgs_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... roscpp_generate_messages_py"

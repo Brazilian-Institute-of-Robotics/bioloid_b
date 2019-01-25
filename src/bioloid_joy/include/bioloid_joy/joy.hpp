@@ -28,6 +28,13 @@ class JoyController {
         std::string     _namespace;
         std::string     _cmdVelTopicName; //? Without namespace
         std::string     _joyTopicName;
+        /*  
+            Function: cmdVelCommand
+            Type: bool
+            Params: Nothing
+            Return: With command was sended or with hadn't any commands to send.
+            Duty: Send commands to _cmdVelTopicName converting from _joyTopicName
+        */
         bool cmdVelCommand();
         bool _commandsFunction[];
         bool _sendPublish;

@@ -28,6 +28,8 @@ class JoyController {
         std::string     _namespace;
         std::string     _cmdVelTopicName; //? Without namespace
         std::string     _joyTopicName;
+        bool cmdVelCommand();
+        bool _commandsFunction[];
         bool _sendPublish;
 
         typedef struct {
@@ -94,10 +96,10 @@ class JoyController {
         /*  
             Function: sendCommands
             Type: bool
-            Params: COMMAND TYPE
+            Params: COMMAND_TYPE
             Return: (bool) With commands were send or if hadn't any commands to sended
-            Duty: Transform _Joy status into 
+            Duty: Transform _Joy status into Commands
         */
-        void sendCommands(int);
+        bool sendCommands(COMMAND_TYPE);
 
 };

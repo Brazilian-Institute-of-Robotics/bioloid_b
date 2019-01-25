@@ -35,11 +35,30 @@ inline void JoyController::initJoyController(){
     _SubJoy = _Node.subscribe(_joyTopicName, 10, &JoyController::subJoyCallback, this);
     //? Init Publisher
     _PubCmdVel = _Node.advertise<geometry_msgs::Twist>(_cmdVelTopicName, 10);
+    //? Init _commandsFunction
+    _commandsFunction[CMD_VEL] = cmdVelCommand;
 }
 
 void JoyController::setJoyTopicName(std::string new_name){
     if(!new_name.empty()) _joyTopicName = new_name;
     _SubJoy = _Node.subscribe(_joyTopicName, 10, &JoyController::subJoyCallback, this);
+}
+
+bool JoyController::sendCommands(COMMAND_TYPE command){
+    return _commandsFunction[command];
+}
+
+inline bool JoyController::cmdVelCommand() {
+    geometry_msgs::Twist msg;
+    float linear = 0.0, angular = 0.0;
+    if(_Joy.button.A) {
+        linear = 0.5;
+        if(_Joy.axes.RT <= 0.0){
+            linear *= -_Joy.axes.RT*1.5;
+        }
+    }
+    msg.linear.x = linear;
+    msg.angular.z = _Joy.axes.horizontal_L_stick;
 }
 
 void JoyController::subJoyCallback(const sensor_msgs::JoyConstPtr& msg){

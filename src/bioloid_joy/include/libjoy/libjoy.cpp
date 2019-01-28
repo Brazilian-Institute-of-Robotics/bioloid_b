@@ -3,14 +3,14 @@
 #include <string>
 #include "libjoy.hpp"
 
-bir::JoyController::JoyController(ros::NodeHandle node)
+bir::JoyController::JoyController(ros::NodeHandle& node)
     :   _Node(node), 
         _namespace("/") 
 {
     this->initJoyController();
 }
 
-bir::JoyController::JoyController(ros::NodeHandle node, std::string p_namespace)
+bir::JoyController::JoyController(ros::NodeHandle& node, std::string p_namespace)
     :   _Node(node), 
         _namespace(p_namespace)
 {

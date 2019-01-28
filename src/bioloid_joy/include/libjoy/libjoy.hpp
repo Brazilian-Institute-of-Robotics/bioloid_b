@@ -9,8 +9,8 @@ namespace bir {
     class JoyController {
     
         public:
-            explicit JoyController(ros::NodeHandle);
-            explicit JoyController(ros::NodeHandle, std::string p_namespace);
+            explicit JoyController(ros::NodeHandle&);
+            explicit JoyController(ros::NodeHandle&, std::string p_namespace);
 
             virtual ~JoyController();
         private:

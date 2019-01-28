@@ -56,6 +56,16 @@ CMAKE_BINARY_DIR = /home/teo/Documentos/nelso/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -67,17 +77,6 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
@@ -88,6 +87,17 @@ install/strip: preinstall
 install/strip/fast: install/strip
 
 .PHONY : install/strip/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # Special rule for the target install
 install: preinstall
@@ -101,15 +111,16 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
+# Special rule for the target install/local
+install/local/fast: install/local
 
-.PHONY : list_install_components/fast
+.PHONY : install/local/fast
 
 # Special rule for the target test
 test:
@@ -121,17 +132,6 @@ test:
 test/fast: test
 
 .PHONY : test/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: install/local
-
-.PHONY : install/local/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -166,231 +166,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/rule
-
-# Convenience name for target.
-bioloid_motion_walk_test: bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/rule
-
-.PHONY : bioloid_motion_walk_test
-
-# fast build rule for target.
-bioloid_motion_walk_test/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/build
-.PHONY : bioloid_motion_walk_test/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/rule
-
-# Convenience name for target.
-bioloid_motion_new_walk: bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/rule
-
-.PHONY : bioloid_motion_new_walk
-
-# fast build rule for target.
-bioloid_motion_new_walk/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/build
-.PHONY : bioloid_motion_new_walk/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/bioloid_utils.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_utils.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/bioloid_utils.dir/rule
-
-# Convenience name for target.
-bioloid_utils: bioloid_motion/CMakeFiles/bioloid_utils.dir/rule
-
-.PHONY : bioloid_utils
-
-# fast build rule for target.
-bioloid_utils/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_utils.dir/build.make bioloid_motion/CMakeFiles/bioloid_utils.dir/build
-.PHONY : bioloid_utils/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/bioloid_robot.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_robot.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/bioloid_robot.dir/rule
-
-# Convenience name for target.
-bioloid_robot: bioloid_motion/CMakeFiles/bioloid_robot.dir/rule
-
-.PHONY : bioloid_robot
-
-# fast build rule for target.
-bioloid_robot/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_robot.dir/build.make bioloid_motion/CMakeFiles/bioloid_robot.dir/build
-.PHONY : bioloid_robot/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/rule
-
-# Convenience name for target.
-bioloid_motion_robot: bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/rule
-
-.PHONY : bioloid_motion_robot
-
-# fast build rule for target.
-bioloid_motion_robot/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/build
-.PHONY : bioloid_motion_robot/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_nodejs: bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-sensor_msgs_generate_messages_nodejs/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
-.PHONY : sensor_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_lisp: bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_lisp
-
-# fast build rule for target.
-sensor_msgs_generate_messages_lisp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
-.PHONY : sensor_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_cpp: bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_cpp
-
-# fast build rule for target.
-sensor_msgs_generate_messages_cpp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
-.PHONY : sensor_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_gencfg: bioloid_motion/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-
-.PHONY : dynamic_reconfigure_gencfg
-
-# fast build rule for target.
-dynamic_reconfigure_gencfg/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/dynamic_reconfigure_gencfg.dir/build.make bioloid_motion/CMakeFiles/dynamic_reconfigure_gencfg.dir/build
-.PHONY : dynamic_reconfigure_gencfg/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_py: bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_py
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_py/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build.make bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_py/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_lisp: bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_lisp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_lisp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_eus: bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_eus
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_eus/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_eus/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_cpp: bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_cpp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_cpp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-control_toolbox_generate_messages_lisp: bioloid_motion/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule
-
-.PHONY : control_toolbox_generate_messages_lisp
-
-# fast build rule for target.
-control_toolbox_generate_messages_lisp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/control_toolbox_generate_messages_lisp.dir/build.make bioloid_motion/CMakeFiles/control_toolbox_generate_messages_lisp.dir/build
-.PHONY : control_toolbox_generate_messages_lisp/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/control_toolbox_generate_messages_eus.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_toolbox_generate_messages_eus.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/control_toolbox_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-control_toolbox_generate_messages_eus: bioloid_motion/CMakeFiles/control_toolbox_generate_messages_eus.dir/rule
-
-.PHONY : control_toolbox_generate_messages_eus
-
-# fast build rule for target.
-control_toolbox_generate_messages_eus/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/control_toolbox_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/control_toolbox_generate_messages_eus.dir/build
-.PHONY : control_toolbox_generate_messages_eus/fast
-
-# Convenience name for target.
 bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/rule:
 	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/rule
 .PHONY : bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/rule
@@ -404,351 +179,6 @@ bioloid_motion_walk: bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/rule
 bioloid_motion_walk/fast:
 	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/build
 .PHONY : bioloid_motion_walk/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-control_msgs_generate_messages_eus: bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/rule
-
-.PHONY : control_msgs_generate_messages_eus
-
-# fast build rule for target.
-control_msgs_generate_messages_eus/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/build
-.PHONY : control_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_nodejs: bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-geometry_msgs_generate_messages_nodejs/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
-.PHONY : geometry_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_nodejs: bioloid_motion/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-
-.PHONY : roscpp_generate_messages_nodejs
-
-# fast build rule for target.
-roscpp_generate_messages_nodejs/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
-.PHONY : roscpp_generate_messages_nodejs/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_lisp: bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_lisp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_lisp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_py: bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_py
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_py/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
-.PHONY : rosgraph_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_lisp: bioloid_motion/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : std_msgs_generate_messages_lisp
-
-# fast build rule for target.
-std_msgs_generate_messages_lisp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make bioloid_motion/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-.PHONY : std_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_lisp: bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_lisp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_lisp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
-.PHONY : geometry_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_eus: bioloid_motion/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-.PHONY : std_msgs_generate_messages_eus
-
-# fast build rule for target.
-std_msgs_generate_messages_eus/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/std_msgs_generate_messages_eus.dir/build
-.PHONY : std_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_lisp: bioloid_motion/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-.PHONY : roscpp_generate_messages_lisp
-
-# fast build rule for target.
-roscpp_generate_messages_lisp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make bioloid_motion/CMakeFiles/roscpp_generate_messages_lisp.dir/build
-.PHONY : roscpp_generate_messages_lisp/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-controller_manager_msgs_generate_messages_lisp: bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : controller_manager_msgs_generate_messages_lisp
-
-# fast build rule for target.
-controller_manager_msgs_generate_messages_lisp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/build.make bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/build
-.PHONY : controller_manager_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_eus: bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_eus
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_eus/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build
-.PHONY : trajectory_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-controller_manager_msgs_generate_messages_py: bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/rule
-
-.PHONY : controller_manager_msgs_generate_messages_py
-
-# fast build rule for target.
-controller_manager_msgs_generate_messages_py/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/build.make bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/build
-.PHONY : controller_manager_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-control_msgs_generate_messages_nodejs: bioloid_motion/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : control_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-control_msgs_generate_messages_nodejs/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/control_msgs_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/control_msgs_generate_messages_nodejs.dir/build
-.PHONY : control_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_eus: bioloid_motion/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-.PHONY : roscpp_generate_messages_eus
-
-# fast build rule for target.
-roscpp_generate_messages_eus/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/roscpp_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/roscpp_generate_messages_eus.dir/build
-.PHONY : roscpp_generate_messages_eus/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/rule
-
-# Convenience name for target.
-bioloid_motion_utils: bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/rule
-
-.PHONY : bioloid_motion_utils
-
-# fast build rule for target.
-bioloid_motion_utils/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/build
-.PHONY : bioloid_motion_utils/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-controller_manager_msgs_generate_messages_cpp: bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : controller_manager_msgs_generate_messages_cpp
-
-# fast build rule for target.
-controller_manager_msgs_generate_messages_cpp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build
-.PHONY : controller_manager_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-control_toolbox_generate_messages_cpp: bioloid_motion/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule
-
-.PHONY : control_toolbox_generate_messages_cpp
-
-# fast build rule for target.
-control_toolbox_generate_messages_cpp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/control_toolbox_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/control_toolbox_generate_messages_cpp.dir/build
-.PHONY : control_toolbox_generate_messages_cpp/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_cpp: bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_cpp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_cpp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_cpp: bioloid_motion/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-
-.PHONY : roscpp_generate_messages_cpp
-
-# fast build rule for target.
-roscpp_generate_messages_cpp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/roscpp_generate_messages_cpp.dir/build
-.PHONY : roscpp_generate_messages_cpp/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_py: bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_py
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_py/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build
-.PHONY : actionlib_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-controller_manager_msgs_generate_messages_nodejs: bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : controller_manager_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-controller_manager_msgs_generate_messages_nodejs/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/build
-.PHONY : controller_manager_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_eus: bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_eus
-
-# fast build rule for target.
-geometry_msgs_generate_messages_eus/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
-.PHONY : geometry_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_nodejs: bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_nodejs/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
-.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
 bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir/rule:
@@ -766,424 +196,49 @@ bioloid_motion_new_walk_test/fast:
 .PHONY : bioloid_motion_new_walk_test/fast
 
 # Convenience name for target.
-bioloid_motion/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule
+bioloid_motion/CMakeFiles/bioloid_robot.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_robot.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/bioloid_robot.dir/rule
 
 # Convenience name for target.
-control_msgs_generate_messages_cpp: bioloid_motion/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule
+bioloid_robot: bioloid_motion/CMakeFiles/bioloid_robot.dir/rule
 
-.PHONY : control_msgs_generate_messages_cpp
+.PHONY : bioloid_robot
 
 # fast build rule for target.
-control_msgs_generate_messages_cpp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/control_msgs_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/control_msgs_generate_messages_cpp.dir/build
-.PHONY : control_msgs_generate_messages_cpp/fast
+bioloid_robot/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_robot.dir/build.make bioloid_motion/CMakeFiles/bioloid_robot.dir/build
+.PHONY : bioloid_robot/fast
 
 # Convenience name for target.
-bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_eus: bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+bioloid_motion_utils: bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_eus
+.PHONY : bioloid_motion_utils
 
 # fast build rule for target.
-rosgraph_msgs_generate_messages_eus/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
-.PHONY : rosgraph_msgs_generate_messages_eus/fast
+bioloid_motion_utils/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/build
+.PHONY : bioloid_motion_utils/fast
 
 # Convenience name for target.
-bioloid_motion/CMakeFiles/roscpp_generate_messages_py.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/roscpp_generate_messages_py.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/roscpp_generate_messages_py.dir/rule
+bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_py: bioloid_motion/CMakeFiles/roscpp_generate_messages_py.dir/rule
+dynamic_reconfigure_generate_messages_py: bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
 
-.PHONY : roscpp_generate_messages_py
+.PHONY : dynamic_reconfigure_generate_messages_py
 
 # fast build rule for target.
-roscpp_generate_messages_py/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/roscpp_generate_messages_py.dir/build.make bioloid_motion/CMakeFiles/roscpp_generate_messages_py.dir/build
-.PHONY : roscpp_generate_messages_py/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/actionlib_generate_messages_eus.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/actionlib_generate_messages_eus.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/actionlib_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_eus: bioloid_motion/CMakeFiles/actionlib_generate_messages_eus.dir/rule
-
-.PHONY : actionlib_generate_messages_eus
-
-# fast build rule for target.
-actionlib_generate_messages_eus/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/actionlib_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/actionlib_generate_messages_eus.dir/build
-.PHONY : actionlib_generate_messages_eus/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-controller_manager_msgs_generate_messages_eus: bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/rule
-
-.PHONY : controller_manager_msgs_generate_messages_eus
-
-# fast build rule for target.
-controller_manager_msgs_generate_messages_eus/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/build
-.PHONY : controller_manager_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/actionlib_generate_messages_py.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/actionlib_generate_messages_py.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/actionlib_generate_messages_py.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_py: bioloid_motion/CMakeFiles/actionlib_generate_messages_py.dir/rule
-
-.PHONY : actionlib_generate_messages_py
-
-# fast build rule for target.
-actionlib_generate_messages_py/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/actionlib_generate_messages_py.dir/build.make bioloid_motion/CMakeFiles/actionlib_generate_messages_py.dir/build
-.PHONY : actionlib_generate_messages_py/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_py: bioloid_motion/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-.PHONY : std_msgs_generate_messages_py
-
-# fast build rule for target.
-std_msgs_generate_messages_py/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/std_msgs_generate_messages_py.dir/build.make bioloid_motion/CMakeFiles/std_msgs_generate_messages_py.dir/build
-.PHONY : std_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/control_msgs_generate_messages_py.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_msgs_generate_messages_py.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/control_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-control_msgs_generate_messages_py: bioloid_motion/CMakeFiles/control_msgs_generate_messages_py.dir/rule
-
-.PHONY : control_msgs_generate_messages_py
-
-# fast build rule for target.
-control_msgs_generate_messages_py/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/control_msgs_generate_messages_py.dir/build.make bioloid_motion/CMakeFiles/control_msgs_generate_messages_py.dir/build
-.PHONY : control_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_py: bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_py
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_py/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build
-.PHONY : trajectory_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_lisp: bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_lisp
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_lisp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
-.PHONY : actionlib_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_nodejs: bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_nodejs/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
-.PHONY : actionlib_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_py: bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_py
-
-# fast build rule for target.
-sensor_msgs_generate_messages_py/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
-.PHONY : sensor_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/actionlib_generate_messages_cpp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_cpp: bioloid_motion/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
-
-.PHONY : actionlib_generate_messages_cpp
-
-# fast build rule for target.
-actionlib_generate_messages_cpp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/actionlib_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/actionlib_generate_messages_cpp.dir/build
-.PHONY : actionlib_generate_messages_cpp/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_nodejs: bioloid_motion/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : std_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-std_msgs_generate_messages_nodejs/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
-.PHONY : std_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_py: bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_py
-
-# fast build rule for target.
-geometry_msgs_generate_messages_py/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-.PHONY : geometry_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_cpp: bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_cpp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_cpp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-.PHONY : geometry_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_cpp: bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_cpp
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_cpp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build
-.PHONY : trajectory_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-control_msgs_generate_messages_lisp: bioloid_motion/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : control_msgs_generate_messages_lisp
-
-# fast build rule for target.
-control_msgs_generate_messages_lisp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/control_msgs_generate_messages_lisp.dir/build.make bioloid_motion/CMakeFiles/control_msgs_generate_messages_lisp.dir/build
-.PHONY : control_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_lisp: bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_lisp
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_lisp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build.make bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build
-.PHONY : trajectory_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_nodejs: bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_nodejs/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
-.PHONY : trajectory_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/control_toolbox_generate_messages_py.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_toolbox_generate_messages_py.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/control_toolbox_generate_messages_py.dir/rule
-
-# Convenience name for target.
-control_toolbox_generate_messages_py: bioloid_motion/CMakeFiles/control_toolbox_generate_messages_py.dir/rule
-
-.PHONY : control_toolbox_generate_messages_py
-
-# fast build rule for target.
-control_toolbox_generate_messages_py/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/control_toolbox_generate_messages_py.dir/build.make bioloid_motion/CMakeFiles/control_toolbox_generate_messages_py.dir/build
-.PHONY : control_toolbox_generate_messages_py/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-control_toolbox_generate_messages_nodejs: bioloid_motion/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule
-
-.PHONY : control_toolbox_generate_messages_nodejs
-
-# fast build rule for target.
-control_toolbox_generate_messages_nodejs/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/build
-.PHONY : control_toolbox_generate_messages_nodejs/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_eus: bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_eus
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_eus/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
-.PHONY : actionlib_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/actionlib_generate_messages_lisp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/actionlib_generate_messages_lisp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/actionlib_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_lisp: bioloid_motion/CMakeFiles/actionlib_generate_messages_lisp.dir/rule
-
-.PHONY : actionlib_generate_messages_lisp
-
-# fast build rule for target.
-actionlib_generate_messages_lisp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/actionlib_generate_messages_lisp.dir/build.make bioloid_motion/CMakeFiles/actionlib_generate_messages_lisp.dir/build
-.PHONY : actionlib_generate_messages_lisp/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_eus: bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_eus
-
-# fast build rule for target.
-sensor_msgs_generate_messages_eus/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
-.PHONY : sensor_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_cpp: bioloid_motion/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : std_msgs_generate_messages_cpp
-
-# fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_cpp: bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_cpp
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_cpp/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build
-.PHONY : actionlib_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_nodejs: bioloid_motion/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule
-
-.PHONY : actionlib_generate_messages_nodejs
-
-# fast build rule for target.
-actionlib_generate_messages_nodejs/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/actionlib_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/actionlib_generate_messages_nodejs.dir/build
-.PHONY : actionlib_generate_messages_nodejs/fast
+dynamic_reconfigure_generate_messages_py/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build.make bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_py/fast
 
 # Convenience name for target.
 bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule:
@@ -1201,6 +256,351 @@ dynamic_reconfigure_generate_messages_nodejs/fast:
 .PHONY : dynamic_reconfigure_generate_messages_nodejs/fast
 
 # Convenience name for target.
+bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+dynamic_reconfigure_generate_messages_eus: bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
+
+.PHONY : dynamic_reconfigure_generate_messages_eus
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_eus/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_eus/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/control_msgs_generate_messages_py.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_msgs_generate_messages_py.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/control_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+control_msgs_generate_messages_py: bioloid_motion/CMakeFiles/control_msgs_generate_messages_py.dir/rule
+
+.PHONY : control_msgs_generate_messages_py
+
+# fast build rule for target.
+control_msgs_generate_messages_py/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/control_msgs_generate_messages_py.dir/build.make bioloid_motion/CMakeFiles/control_msgs_generate_messages_py.dir/build
+.PHONY : control_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+controller_manager_msgs_generate_messages_nodejs: bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : controller_manager_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+controller_manager_msgs_generate_messages_nodejs/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/build
+.PHONY : controller_manager_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+control_toolbox_generate_messages_nodejs: bioloid_motion/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule
+
+.PHONY : control_toolbox_generate_messages_nodejs
+
+# fast build rule for target.
+control_toolbox_generate_messages_nodejs/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/build
+.PHONY : control_toolbox_generate_messages_nodejs/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/bioloid_utils.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_utils.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/bioloid_utils.dir/rule
+
+# Convenience name for target.
+bioloid_utils: bioloid_motion/CMakeFiles/bioloid_utils.dir/rule
+
+.PHONY : bioloid_utils
+
+# fast build rule for target.
+bioloid_utils/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_utils.dir/build.make bioloid_motion/CMakeFiles/bioloid_utils.dir/build
+.PHONY : bioloid_utils/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+dynamic_reconfigure_generate_messages_lisp: bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
+
+.PHONY : dynamic_reconfigure_generate_messages_lisp
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_lisp/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+control_msgs_generate_messages_lisp: bioloid_motion/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : control_msgs_generate_messages_lisp
+
+# fast build rule for target.
+control_msgs_generate_messages_lisp/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/control_msgs_generate_messages_lisp.dir/build.make bioloid_motion/CMakeFiles/control_msgs_generate_messages_lisp.dir/build
+.PHONY : control_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+controller_manager_msgs_generate_messages_eus: bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/rule
+
+.PHONY : controller_manager_msgs_generate_messages_eus
+
+# fast build rule for target.
+controller_manager_msgs_generate_messages_eus/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/build
+.PHONY : controller_manager_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/rule
+
+# Convenience name for target.
+bioloid_motion_robot: bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/rule
+
+.PHONY : bioloid_motion_robot
+
+# fast build rule for target.
+bioloid_motion_robot/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/build
+.PHONY : bioloid_motion_robot/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
+
+# Convenience name for target.
+dynamic_reconfigure_gencfg: bioloid_motion/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
+
+.PHONY : dynamic_reconfigure_gencfg
+
+# fast build rule for target.
+dynamic_reconfigure_gencfg/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/dynamic_reconfigure_gencfg.dir/build.make bioloid_motion/CMakeFiles/dynamic_reconfigure_gencfg.dir/build
+.PHONY : dynamic_reconfigure_gencfg/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/control_toolbox_generate_messages_eus.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_toolbox_generate_messages_eus.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/control_toolbox_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+control_toolbox_generate_messages_eus: bioloid_motion/CMakeFiles/control_toolbox_generate_messages_eus.dir/rule
+
+.PHONY : control_toolbox_generate_messages_eus
+
+# fast build rule for target.
+control_toolbox_generate_messages_eus/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/control_toolbox_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/control_toolbox_generate_messages_eus.dir/build
+.PHONY : control_toolbox_generate_messages_eus/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+control_msgs_generate_messages_eus: bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/rule
+
+.PHONY : control_msgs_generate_messages_eus
+
+# fast build rule for target.
+control_msgs_generate_messages_eus/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/build
+.PHONY : control_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/rule
+
+# Convenience name for target.
+bioloid_motion_new_walk: bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/rule
+
+.PHONY : bioloid_motion_new_walk
+
+# fast build rule for target.
+bioloid_motion_new_walk/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/build
+.PHONY : bioloid_motion_new_walk/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+controller_manager_msgs_generate_messages_cpp: bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : controller_manager_msgs_generate_messages_cpp
+
+# fast build rule for target.
+controller_manager_msgs_generate_messages_cpp/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build
+.PHONY : controller_manager_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+control_msgs_generate_messages_cpp: bioloid_motion/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : control_msgs_generate_messages_cpp
+
+# fast build rule for target.
+control_msgs_generate_messages_cpp/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/control_msgs_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/control_msgs_generate_messages_cpp.dir/build
+.PHONY : control_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+controller_manager_msgs_generate_messages_lisp: bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : controller_manager_msgs_generate_messages_lisp
+
+# fast build rule for target.
+controller_manager_msgs_generate_messages_lisp/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/build.make bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/build
+.PHONY : controller_manager_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+control_msgs_generate_messages_nodejs: bioloid_motion/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : control_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+control_msgs_generate_messages_nodejs/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/control_msgs_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/control_msgs_generate_messages_nodejs.dir/build
+.PHONY : control_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+controller_manager_msgs_generate_messages_py: bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/rule
+
+.PHONY : controller_manager_msgs_generate_messages_py
+
+# fast build rule for target.
+controller_manager_msgs_generate_messages_py/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/build.make bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/build
+.PHONY : controller_manager_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+trajectory_msgs_generate_messages_cpp: bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : trajectory_msgs_generate_messages_cpp
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_cpp/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build
+.PHONY : trajectory_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+trajectory_msgs_generate_messages_lisp: bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : trajectory_msgs_generate_messages_lisp
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_lisp/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build.make bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build
+.PHONY : trajectory_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/rule
+
+# Convenience name for target.
+bioloid_motion_walk_test: bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/rule
+
+.PHONY : bioloid_motion_walk_test
+
+# fast build rule for target.
+bioloid_motion_walk_test/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/build
+.PHONY : bioloid_motion_walk_test/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+dynamic_reconfigure_generate_messages_cpp: bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
+
+.PHONY : dynamic_reconfigure_generate_messages_cpp
+
+# fast build rule for target.
+dynamic_reconfigure_generate_messages_cpp/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
+.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+trajectory_msgs_generate_messages_py: bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
+
+.PHONY : trajectory_msgs_generate_messages_py
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_py/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build
+.PHONY : trajectory_msgs_generate_messages_py/fast
+
+# Convenience name for target.
 bioloid_motion/CMakeFiles/control_toolbox_gencfg.dir/rule:
 	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_toolbox_gencfg.dir/rule
 .PHONY : bioloid_motion/CMakeFiles/control_toolbox_gencfg.dir/rule
@@ -1214,6 +614,81 @@ control_toolbox_gencfg: bioloid_motion/CMakeFiles/control_toolbox_gencfg.dir/rul
 control_toolbox_gencfg/fast:
 	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/control_toolbox_gencfg.dir/build.make bioloid_motion/CMakeFiles/control_toolbox_gencfg.dir/build
 .PHONY : control_toolbox_gencfg/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+trajectory_msgs_generate_messages_nodejs: bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : trajectory_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_nodejs/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
+.PHONY : trajectory_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+control_toolbox_generate_messages_cpp: bioloid_motion/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule
+
+.PHONY : control_toolbox_generate_messages_cpp
+
+# fast build rule for target.
+control_toolbox_generate_messages_cpp/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/control_toolbox_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/control_toolbox_generate_messages_cpp.dir/build
+.PHONY : control_toolbox_generate_messages_cpp/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+control_toolbox_generate_messages_lisp: bioloid_motion/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule
+
+.PHONY : control_toolbox_generate_messages_lisp
+
+# fast build rule for target.
+control_toolbox_generate_messages_lisp/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/control_toolbox_generate_messages_lisp.dir/build.make bioloid_motion/CMakeFiles/control_toolbox_generate_messages_lisp.dir/build
+.PHONY : control_toolbox_generate_messages_lisp/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+trajectory_msgs_generate_messages_eus: bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
+
+.PHONY : trajectory_msgs_generate_messages_eus
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_eus/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build
+.PHONY : trajectory_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/control_toolbox_generate_messages_py.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_toolbox_generate_messages_py.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/control_toolbox_generate_messages_py.dir/rule
+
+# Convenience name for target.
+control_toolbox_generate_messages_py: bioloid_motion/CMakeFiles/control_toolbox_generate_messages_py.dir/rule
+
+.PHONY : control_toolbox_generate_messages_py
+
+# fast build rule for target.
+control_toolbox_generate_messages_py/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/control_toolbox_generate_messages_py.dir/build.make bioloid_motion/CMakeFiles/control_toolbox_generate_messages_py.dir/build
+.PHONY : control_toolbox_generate_messages_py/fast
 
 include/bioloid/bioloid_robot.o: include/bioloid/bioloid_robot.cpp.o
 
@@ -1437,83 +912,48 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
-	@echo "... edit_cache"
-	@echo "... bioloid_motion_walk_test"
-	@echo "... bioloid_motion_new_walk"
-	@echo "... bioloid_utils"
-	@echo "... bioloid_robot"
-	@echo "... install/strip"
-	@echo "... bioloid_motion_robot"
-	@echo "... sensor_msgs_generate_messages_nodejs"
-	@echo "... sensor_msgs_generate_messages_lisp"
-	@echo "... sensor_msgs_generate_messages_cpp"
-	@echo "... dynamic_reconfigure_gencfg"
-	@echo "... dynamic_reconfigure_generate_messages_py"
-	@echo "... dynamic_reconfigure_generate_messages_lisp"
-	@echo "... dynamic_reconfigure_generate_messages_eus"
-	@echo "... dynamic_reconfigure_generate_messages_cpp"
-	@echo "... control_toolbox_generate_messages_lisp"
-	@echo "... control_toolbox_generate_messages_eus"
-	@echo "... bioloid_motion_walk"
-	@echo "... control_msgs_generate_messages_eus"
-	@echo "... geometry_msgs_generate_messages_nodejs"
-	@echo "... roscpp_generate_messages_nodejs"
-	@echo "... rosgraph_msgs_generate_messages_lisp"
-	@echo "... rosgraph_msgs_generate_messages_py"
-	@echo "... install"
-	@echo "... std_msgs_generate_messages_lisp"
-	@echo "... geometry_msgs_generate_messages_lisp"
-	@echo "... std_msgs_generate_messages_eus"
-	@echo "... roscpp_generate_messages_lisp"
-	@echo "... controller_manager_msgs_generate_messages_lisp"
-	@echo "... trajectory_msgs_generate_messages_eus"
-	@echo "... controller_manager_msgs_generate_messages_py"
-	@echo "... control_msgs_generate_messages_nodejs"
 	@echo "... list_install_components"
-	@echo "... roscpp_generate_messages_eus"
-	@echo "... bioloid_motion_utils"
-	@echo "... controller_manager_msgs_generate_messages_cpp"
-	@echo "... control_toolbox_generate_messages_cpp"
-	@echo "... rosgraph_msgs_generate_messages_cpp"
-	@echo "... roscpp_generate_messages_cpp"
-	@echo "... actionlib_msgs_generate_messages_py"
-	@echo "... controller_manager_msgs_generate_messages_nodejs"
-	@echo "... geometry_msgs_generate_messages_eus"
-	@echo "... rosgraph_msgs_generate_messages_nodejs"
+	@echo "... rebuild_cache"
+	@echo "... bioloid_motion_walk"
 	@echo "... bioloid_motion_new_walk_test"
-	@echo "... control_msgs_generate_messages_cpp"
-	@echo "... rosgraph_msgs_generate_messages_eus"
-	@echo "... roscpp_generate_messages_py"
-	@echo "... actionlib_generate_messages_eus"
-	@echo "... controller_manager_msgs_generate_messages_eus"
-	@echo "... actionlib_generate_messages_py"
-	@echo "... std_msgs_generate_messages_py"
-	@echo "... control_msgs_generate_messages_py"
-	@echo "... trajectory_msgs_generate_messages_py"
-	@echo "... actionlib_msgs_generate_messages_lisp"
-	@echo "... actionlib_msgs_generate_messages_nodejs"
-	@echo "... sensor_msgs_generate_messages_py"
-	@echo "... actionlib_generate_messages_cpp"
-	@echo "... std_msgs_generate_messages_nodejs"
-	@echo "... geometry_msgs_generate_messages_py"
-	@echo "... test"
-	@echo "... geometry_msgs_generate_messages_cpp"
-	@echo "... trajectory_msgs_generate_messages_cpp"
-	@echo "... control_msgs_generate_messages_lisp"
-	@echo "... trajectory_msgs_generate_messages_lisp"
-	@echo "... install/local"
-	@echo "... trajectory_msgs_generate_messages_nodejs"
-	@echo "... control_toolbox_generate_messages_py"
-	@echo "... control_toolbox_generate_messages_nodejs"
-	@echo "... actionlib_msgs_generate_messages_eus"
-	@echo "... actionlib_generate_messages_lisp"
-	@echo "... sensor_msgs_generate_messages_eus"
-	@echo "... std_msgs_generate_messages_cpp"
-	@echo "... actionlib_msgs_generate_messages_cpp"
-	@echo "... actionlib_generate_messages_nodejs"
+	@echo "... bioloid_robot"
+	@echo "... bioloid_motion_utils"
+	@echo "... dynamic_reconfigure_generate_messages_py"
 	@echo "... dynamic_reconfigure_generate_messages_nodejs"
+	@echo "... install/strip"
+	@echo "... dynamic_reconfigure_generate_messages_eus"
+	@echo "... control_msgs_generate_messages_py"
+	@echo "... controller_manager_msgs_generate_messages_nodejs"
+	@echo "... control_toolbox_generate_messages_nodejs"
+	@echo "... bioloid_utils"
+	@echo "... dynamic_reconfigure_generate_messages_lisp"
+	@echo "... control_msgs_generate_messages_lisp"
+	@echo "... controller_manager_msgs_generate_messages_eus"
+	@echo "... edit_cache"
+	@echo "... bioloid_motion_robot"
+	@echo "... dynamic_reconfigure_gencfg"
+	@echo "... control_toolbox_generate_messages_eus"
+	@echo "... control_msgs_generate_messages_eus"
+	@echo "... install"
+	@echo "... bioloid_motion_new_walk"
+	@echo "... controller_manager_msgs_generate_messages_cpp"
+	@echo "... install/local"
+	@echo "... control_msgs_generate_messages_cpp"
+	@echo "... controller_manager_msgs_generate_messages_lisp"
+	@echo "... control_msgs_generate_messages_nodejs"
+	@echo "... controller_manager_msgs_generate_messages_py"
+	@echo "... trajectory_msgs_generate_messages_cpp"
+	@echo "... trajectory_msgs_generate_messages_lisp"
+	@echo "... bioloid_motion_walk_test"
+	@echo "... dynamic_reconfigure_generate_messages_cpp"
+	@echo "... trajectory_msgs_generate_messages_py"
+	@echo "... test"
 	@echo "... control_toolbox_gencfg"
+	@echo "... trajectory_msgs_generate_messages_nodejs"
+	@echo "... control_toolbox_generate_messages_cpp"
+	@echo "... control_toolbox_generate_messages_lisp"
+	@echo "... trajectory_msgs_generate_messages_eus"
+	@echo "... control_toolbox_generate_messages_py"
 	@echo "... include/bioloid/bioloid_robot.o"
 	@echo "... include/bioloid/bioloid_robot.i"
 	@echo "... include/bioloid/bioloid_robot.s"

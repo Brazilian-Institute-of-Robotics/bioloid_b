@@ -1,7 +1,10 @@
 <?xml version="1.0"?>
 <launch>
+    <arg name="joy" default="false" doc="Control Joy Launch"/>
     <!-- Launch Pubs -->
     <include file="$(find bioloid_config)/launch/bioloid_pubs.launch"/>
+    <!-- Joy Launch -->
+    <include if="$(arg joy)" file="$(find bioloid_joy)/launch/bioloid_joy.launch"/>
     <!-- Launch Gazebo Spawn -->
     <include file="$(find bioloid_config)/launch/bioloid_gazebo.launch"/>
     <!-- Launch Controllers -->

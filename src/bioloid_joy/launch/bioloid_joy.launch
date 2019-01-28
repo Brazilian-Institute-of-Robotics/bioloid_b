@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="device" default="/dev/input/js0"/>
+    <param name="joy_node/dev" value="$(arg device)"/>
+    <node pkg="joy" type="joy_node" ns="/typea/" name="joy_node"/>
+    <node pkg="bioloid_joy" type="bioloid_joy_node" ns="/typea/" name="bioloid_joy_node" />
+</launch>

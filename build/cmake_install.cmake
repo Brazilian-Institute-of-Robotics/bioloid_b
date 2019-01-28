@@ -119,6 +119,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/teo/Documentos/nelso/build/gtest/cmake_install.cmake")
   include("/home/teo/Documentos/nelso/build/bioloid_config/cmake_install.cmake")
   include("/home/teo/Documentos/nelso/build/bioloid_typea_description/cmake_install.cmake")
+  include("/home/teo/Documentos/nelso/build/bioloid_joy/cmake_install.cmake")
   include("/home/teo/Documentos/nelso/build/bioloid_motion/cmake_install.cmake")
 
 endif()

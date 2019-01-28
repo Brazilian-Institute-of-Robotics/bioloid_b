@@ -1,2 +1,2 @@
-bioloid_config:bioloid_motion:bioloid_typea_description
+bioloid_config:bioloid_joy:bioloid_motion:bioloid_typea_description
 -DCATKIN_DEVEL_PREFIX=/home/teo/Documentos/nelso/devel -DCMAKE_INSTALL_PREFIX=/home/teo/Documentos/nelso/install -G Unix Makefiles

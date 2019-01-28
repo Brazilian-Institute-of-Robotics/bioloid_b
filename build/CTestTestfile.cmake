@@ -7,4 +7,5 @@
 subdirs(gtest)
 subdirs(bioloid_config)
 subdirs(bioloid_typea_description)
+subdirs(bioloid_joy)
 subdirs(bioloid_motion)

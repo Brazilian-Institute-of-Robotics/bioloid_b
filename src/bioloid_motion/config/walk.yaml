@@ -1,5 +1,6 @@
 # bioloid_motion Settings
 
 # walker loop
-walker:
-  loop_hz: 100
+typea:
+  walker:
+    loop_hz: 100

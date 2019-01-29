@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="bioloid_motion" ns="/typea/" type="bioloid_motion_moveto" name="bioloid_motion_moveto" />
+</launch>

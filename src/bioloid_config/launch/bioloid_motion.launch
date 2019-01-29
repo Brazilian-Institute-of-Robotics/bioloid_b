@@ -3,5 +3,5 @@
     <!-- Load Walk Config File -->
     <rosparam file="$(find bioloid_motion)/config/walk.yaml" command="load"/>
     <!-- Launch Walker Script -->
-    <node name="typea_walker" pkg="bioloid_motion" type="robot_motion_walk" output="screen"/>
+    <node name="typea_walker" ns="/typea/" pkg="bioloid_motion" type="robot_motion_walk" output="screen"/>
 </launch>

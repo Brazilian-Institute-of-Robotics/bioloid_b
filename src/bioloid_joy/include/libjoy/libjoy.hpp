@@ -34,7 +34,8 @@ namespace bir {
                 BACK,
                 START,
                 POWER,
-                L3
+                L3,
+                R3
             };
 
             typedef struct {

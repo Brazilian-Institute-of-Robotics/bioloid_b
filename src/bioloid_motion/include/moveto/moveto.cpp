@@ -25,7 +25,7 @@ bir::MoveTo::MoveTo(ros::NodeHandle& node, std::string p_odom_topic, std::string
     // Publsiher Setting
     _pubCmdVel = _Node.advertise<geometry_msgs::Twist>(p_cmd_vel_topic, 20);
     // Class Config
-    _angularVelocityPID = new PID(1, 0, 0, 10);
+    _angularVelocityPID = new PID(3, 0.03, 0, 10);
     _end = false;
 }
 

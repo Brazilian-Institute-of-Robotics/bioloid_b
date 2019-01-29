@@ -1,12 +1,17 @@
 <?xml version="1.0"?>
 <launch>
     <arg name="joy" default="false" doc="Control Joy Launch"/>
+    <arg name="moveto" default="false"/>
+    <arg name="gazebo" default="true"/>
+    <arg name="rviz" default="false"/>
     <!-- Launch Pubs -->
     <include file="$(find bioloid_config)/launch/bioloid_pubs.launch"/>
     <!-- Joy Launch -->
     <include if="$(arg joy)" file="$(find bioloid_joy)/launch/bioloid_joy.launch"/>
+    <!-- Move To Launch -->
+    <include if="$(arg moveto)" file="$(find bioloid_config)/launch/bioloid_moveto.launch" />
     <!-- Launch Gazebo Spawn -->
-    <include file="$(find bioloid_config)/launch/bioloid_gazebo.launch"/>
+    <include if="$(arg gazebo)" file="$(find bioloid_config)/launch/bioloid_gazebo.launch"/>
     <!-- Launch Controllers -->
     <include file="$(find bioloid_config)/launch/bioloid_controllers.launch"/>
     <!-- Launch Motion -->

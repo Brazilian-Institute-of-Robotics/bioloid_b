@@ -47,3 +47,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/bioloid_joy" TYPE FILE FILES "/home/teo/Documentos/nelso/src/bioloid_joy/package.xml")
 endif()
 
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/bioloid_joy" TYPE PROGRAM FILES "/home/teo/Documentos/nelso/src/bioloid_joy/src/libjoy.py")
+endif()
+

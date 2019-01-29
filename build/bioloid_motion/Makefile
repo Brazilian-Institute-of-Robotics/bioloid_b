@@ -100,17 +100,6 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -121,6 +110,17 @@ install/local: preinstall
 install/local/fast: install/local
 
 .PHONY : install/local/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
@@ -211,6 +211,21 @@ control_toolbox_generate_messages_cpp/fast:
 .PHONY : control_toolbox_generate_messages_cpp/fast
 
 # Convenience name for target.
+bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+trajectory_msgs_generate_messages_nodejs: bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : trajectory_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_nodejs/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
+.PHONY : trajectory_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
 bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule:
 	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
 .PHONY : bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
@@ -254,6 +269,21 @@ bioloid_motion_walk_test: bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir
 bioloid_motion_walk_test/fast:
 	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/build
 .PHONY : bioloid_motion_walk_test/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/rule
+
+# Convenience name for target.
+bioloid_motion_moveto: bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/rule
+
+.PHONY : bioloid_motion_moveto
+
+# fast build rule for target.
+bioloid_motion_moveto/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/build
+.PHONY : bioloid_motion_moveto/fast
 
 # Convenience name for target.
 bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule:
@@ -329,21 +359,6 @@ nav_msgs_generate_messages_py: bioloid_motion/CMakeFiles/nav_msgs_generate_messa
 nav_msgs_generate_messages_py/fast:
 	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/nav_msgs_generate_messages_py.dir/build.make bioloid_motion/CMakeFiles/nav_msgs_generate_messages_py.dir/build
 .PHONY : nav_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
-.PHONY : bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_nodejs: bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_nodejs/fast:
-	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
-.PHONY : trajectory_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
 bioloid_motion/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule:
@@ -706,6 +721,21 @@ nav_msgs_generate_messages_cpp/fast:
 .PHONY : nav_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
+bioloid_motion/CMakeFiles/pid.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/pid.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/pid.dir/rule
+
+# Convenience name for target.
+pid: bioloid_motion/CMakeFiles/pid.dir/rule
+
+.PHONY : pid
+
+# fast build rule for target.
+pid/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/pid.dir/build.make bioloid_motion/CMakeFiles/pid.dir/build
+.PHONY : pid/fast
+
+# Convenience name for target.
 bioloid_motion/CMakeFiles/bioloid_robot.dir/rule:
 	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_robot.dir/rule
 .PHONY : bioloid_motion/CMakeFiles/bioloid_robot.dir/rule
@@ -719,6 +749,21 @@ bioloid_robot: bioloid_motion/CMakeFiles/bioloid_robot.dir/rule
 bioloid_robot/fast:
 	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_robot.dir/build.make bioloid_motion/CMakeFiles/bioloid_robot.dir/build
 .PHONY : bioloid_robot/fast
+
+# Convenience name for target.
+bioloid_motion/CMakeFiles/moveto.dir/rule:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/moveto.dir/rule
+.PHONY : bioloid_motion/CMakeFiles/moveto.dir/rule
+
+# Convenience name for target.
+moveto: bioloid_motion/CMakeFiles/moveto.dir/rule
+
+.PHONY : moveto
+
+# fast build rule for target.
+moveto/fast:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/moveto.dir/build.make bioloid_motion/CMakeFiles/moveto.dir/build
+.PHONY : moveto/fast
 
 # Convenience name for target.
 bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/rule:
@@ -891,6 +936,36 @@ include/bioloid/bioloid_walk.cpp.s:
 	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/include/bioloid/bioloid_walk.cpp.s
 .PHONY : include/bioloid/bioloid_walk.cpp.s
 
+include/moveto/moveto.o: include/moveto/moveto.cpp.o
+
+.PHONY : include/moveto/moveto.o
+
+# target to build an object file
+include/moveto/moveto.cpp.o:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/include/moveto/moveto.cpp.o
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/moveto.dir/build.make bioloid_motion/CMakeFiles/moveto.dir/include/moveto/moveto.cpp.o
+.PHONY : include/moveto/moveto.cpp.o
+
+include/moveto/moveto.i: include/moveto/moveto.cpp.i
+
+.PHONY : include/moveto/moveto.i
+
+# target to preprocess a source file
+include/moveto/moveto.cpp.i:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/include/moveto/moveto.cpp.i
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/moveto.dir/build.make bioloid_motion/CMakeFiles/moveto.dir/include/moveto/moveto.cpp.i
+.PHONY : include/moveto/moveto.cpp.i
+
+include/moveto/moveto.s: include/moveto/moveto.cpp.s
+
+.PHONY : include/moveto/moveto.s
+
+# target to generate assembly for a file
+include/moveto/moveto.cpp.s:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/include/moveto/moveto.cpp.s
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/moveto.dir/build.make bioloid_motion/CMakeFiles/moveto.dir/include/moveto/moveto.cpp.s
+.PHONY : include/moveto/moveto.cpp.s
+
 include/odom/accel.o: include/odom/accel.cpp.o
 
 .PHONY : include/odom/accel.o
@@ -950,6 +1025,36 @@ include/odom/odom.cpp.s:
 	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/odom.dir/build.make bioloid_motion/CMakeFiles/odom.dir/include/odom/odom.cpp.s
 	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_accel.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_accel.dir/include/odom/odom.cpp.s
 .PHONY : include/odom/odom.cpp.s
+
+include/pid/pid.o: include/pid/pid.cpp.o
+
+.PHONY : include/pid/pid.o
+
+# target to build an object file
+include/pid/pid.cpp.o:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/include/pid/pid.cpp.o
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/pid.dir/build.make bioloid_motion/CMakeFiles/pid.dir/include/pid/pid.cpp.o
+.PHONY : include/pid/pid.cpp.o
+
+include/pid/pid.i: include/pid/pid.cpp.i
+
+.PHONY : include/pid/pid.i
+
+# target to preprocess a source file
+include/pid/pid.cpp.i:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/include/pid/pid.cpp.i
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/pid.dir/build.make bioloid_motion/CMakeFiles/pid.dir/include/pid/pid.cpp.i
+.PHONY : include/pid/pid.cpp.i
+
+include/pid/pid.s: include/pid/pid.cpp.s
+
+.PHONY : include/pid/pid.s
+
+# target to generate assembly for a file
+include/pid/pid.cpp.s:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/include/pid/pid.cpp.s
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/pid.dir/build.make bioloid_motion/CMakeFiles/pid.dir/include/pid/pid.cpp.s
+.PHONY : include/pid/pid.cpp.s
 
 src/accel_test.o: src/accel_test.cpp.o
 
@@ -1113,6 +1218,33 @@ src/bioloid_walk_test.cpp.s:
 	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir/src/bioloid_walk_test.cpp.s
 .PHONY : src/bioloid_walk_test.cpp.s
 
+src/moveto.o: src/moveto.cpp.o
+
+.PHONY : src/moveto.o
+
+# target to build an object file
+src/moveto.cpp.o:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/src/moveto.cpp.o
+.PHONY : src/moveto.cpp.o
+
+src/moveto.i: src/moveto.cpp.i
+
+.PHONY : src/moveto.i
+
+# target to preprocess a source file
+src/moveto.cpp.i:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/src/moveto.cpp.i
+.PHONY : src/moveto.cpp.i
+
+src/moveto.s: src/moveto.cpp.s
+
+.PHONY : src/moveto.s
+
+# target to generate assembly for a file
+src/moveto.cpp.s:
+	cd /home/teo/Documentos/nelso/build && $(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/src/moveto.cpp.s
+.PHONY : src/moveto.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1126,17 +1258,18 @@ help:
 	@echo "... trajectory_msgs_generate_messages_eus"
 	@echo "... control_toolbox_generate_messages_lisp"
 	@echo "... control_toolbox_generate_messages_cpp"
+	@echo "... install/local"
+	@echo "... trajectory_msgs_generate_messages_nodejs"
 	@echo "... trajectory_msgs_generate_messages_py"
 	@echo "... dynamic_reconfigure_generate_messages_cpp"
 	@echo "... bioloid_motion_walk_test"
+	@echo "... bioloid_motion_moveto"
 	@echo "... test"
 	@echo "... trajectory_msgs_generate_messages_cpp"
 	@echo "... controller_manager_msgs_generate_messages_py"
 	@echo "... control_msgs_generate_messages_nodejs"
 	@echo "... controller_manager_msgs_generate_messages_lisp"
 	@echo "... nav_msgs_generate_messages_py"
-	@echo "... trajectory_msgs_generate_messages_nodejs"
-	@echo "... install/local"
 	@echo "... nav_msgs_generate_messages_lisp"
 	@echo "... bioloid_motion_new_walk"
 	@echo "... dynamic_reconfigure_gencfg"
@@ -1155,14 +1288,16 @@ help:
 	@echo "... dynamic_reconfigure_generate_messages_eus"
 	@echo "... control_toolbox_gencfg"
 	@echo "... dynamic_reconfigure_generate_messages_nodejs"
-	@echo "... bioloid_motion_robot"
 	@echo "... install/strip"
+	@echo "... bioloid_motion_robot"
 	@echo "... nav_msgs_generate_messages_eus"
 	@echo "... dynamic_reconfigure_generate_messages_py"
 	@echo "... controller_manager_msgs_generate_messages_cpp"
 	@echo "... bioloid_motion_utils"
 	@echo "... nav_msgs_generate_messages_cpp"
+	@echo "... pid"
 	@echo "... bioloid_robot"
+	@echo "... moveto"
 	@echo "... controller_manager_msgs_generate_messages_nodejs"
 	@echo "... bioloid_motion_accel"
 	@echo "... control_msgs_generate_messages_cpp"
@@ -1178,12 +1313,18 @@ help:
 	@echo "... include/bioloid/bioloid_walk.o"
 	@echo "... include/bioloid/bioloid_walk.i"
 	@echo "... include/bioloid/bioloid_walk.s"
+	@echo "... include/moveto/moveto.o"
+	@echo "... include/moveto/moveto.i"
+	@echo "... include/moveto/moveto.s"
 	@echo "... include/odom/accel.o"
 	@echo "... include/odom/accel.i"
 	@echo "... include/odom/accel.s"
 	@echo "... include/odom/odom.o"
 	@echo "... include/odom/odom.i"
 	@echo "... include/odom/odom.s"
+	@echo "... include/pid/pid.o"
+	@echo "... include/pid/pid.i"
+	@echo "... include/pid/pid.s"
 	@echo "... src/accel_test.o"
 	@echo "... src/accel_test.i"
 	@echo "... src/accel_test.s"
@@ -1202,6 +1343,9 @@ help:
 	@echo "... src/bioloid_walk_test.o"
 	@echo "... src/bioloid_walk_test.i"
 	@echo "... src/bioloid_walk_test.s"
+	@echo "... src/moveto.o"
+	@echo "... src/moveto.i"
+	@echo "... src/moveto.s"
 .PHONY : help
 
 

@@ -946,6 +946,19 @@ control_toolbox_generate_messages_cpp/fast:
 .PHONY : control_toolbox_generate_messages_cpp/fast
 
 #=============================================================================
+# Target rules for targets named trajectory_msgs_generate_messages_nodejs
+
+# Build rule for target.
+trajectory_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_nodejs
+.PHONY : trajectory_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
+.PHONY : trajectory_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
 # Target rules for targets named trajectory_msgs_generate_messages_py
 
 # Build rule for target.
@@ -983,6 +996,19 @@ bioloid_motion_walk_test: cmake_check_build_system
 bioloid_motion_walk_test/fast:
 	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/build
 .PHONY : bioloid_motion_walk_test/fast
+
+#=============================================================================
+# Target rules for targets named bioloid_motion_moveto
+
+# Build rule for target.
+bioloid_motion_moveto: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bioloid_motion_moveto
+.PHONY : bioloid_motion_moveto
+
+# fast build rule for target.
+bioloid_motion_moveto/fast:
+	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/build
+.PHONY : bioloid_motion_moveto/fast
 
 #=============================================================================
 # Target rules for targets named trajectory_msgs_generate_messages_cpp
@@ -1048,19 +1074,6 @@ nav_msgs_generate_messages_py: cmake_check_build_system
 nav_msgs_generate_messages_py/fast:
 	$(MAKE) -f bioloid_motion/CMakeFiles/nav_msgs_generate_messages_py.dir/build.make bioloid_motion/CMakeFiles/nav_msgs_generate_messages_py.dir/build
 .PHONY : nav_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named trajectory_msgs_generate_messages_nodejs
-
-# Build rule for target.
-trajectory_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_nodejs
-.PHONY : trajectory_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
-.PHONY : trajectory_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
 # Target rules for targets named nav_msgs_generate_messages_lisp
@@ -1375,6 +1388,19 @@ nav_msgs_generate_messages_cpp/fast:
 .PHONY : nav_msgs_generate_messages_cpp/fast
 
 #=============================================================================
+# Target rules for targets named pid
+
+# Build rule for target.
+pid: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pid
+.PHONY : pid
+
+# fast build rule for target.
+pid/fast:
+	$(MAKE) -f bioloid_motion/CMakeFiles/pid.dir/build.make bioloid_motion/CMakeFiles/pid.dir/build
+.PHONY : pid/fast
+
+#=============================================================================
 # Target rules for targets named bioloid_robot
 
 # Build rule for target.
@@ -1386,6 +1412,19 @@ bioloid_robot: cmake_check_build_system
 bioloid_robot/fast:
 	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_robot.dir/build.make bioloid_motion/CMakeFiles/bioloid_robot.dir/build
 .PHONY : bioloid_robot/fast
+
+#=============================================================================
+# Target rules for targets named moveto
+
+# Build rule for target.
+moveto: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 moveto
+.PHONY : moveto
+
+# fast build rule for target.
+moveto/fast:
+	$(MAKE) -f bioloid_motion/CMakeFiles/moveto.dir/build.make bioloid_motion/CMakeFiles/moveto.dir/build
+.PHONY : moveto/fast
 
 #=============================================================================
 # Target rules for targets named controller_manager_msgs_generate_messages_nodejs
@@ -1538,15 +1577,16 @@ help:
 	@echo "... trajectory_msgs_generate_messages_eus"
 	@echo "... control_toolbox_generate_messages_lisp"
 	@echo "... control_toolbox_generate_messages_cpp"
+	@echo "... trajectory_msgs_generate_messages_nodejs"
 	@echo "... trajectory_msgs_generate_messages_py"
 	@echo "... dynamic_reconfigure_generate_messages_cpp"
 	@echo "... bioloid_motion_walk_test"
+	@echo "... bioloid_motion_moveto"
 	@echo "... trajectory_msgs_generate_messages_cpp"
 	@echo "... controller_manager_msgs_generate_messages_py"
 	@echo "... control_msgs_generate_messages_nodejs"
 	@echo "... controller_manager_msgs_generate_messages_lisp"
 	@echo "... nav_msgs_generate_messages_py"
-	@echo "... trajectory_msgs_generate_messages_nodejs"
 	@echo "... nav_msgs_generate_messages_lisp"
 	@echo "... bioloid_motion_new_walk"
 	@echo "... dynamic_reconfigure_gencfg"
@@ -1571,7 +1611,9 @@ help:
 	@echo "... controller_manager_msgs_generate_messages_cpp"
 	@echo "... bioloid_motion_utils"
 	@echo "... nav_msgs_generate_messages_cpp"
+	@echo "... pid"
 	@echo "... bioloid_robot"
+	@echo "... moveto"
 	@echo "... controller_manager_msgs_generate_messages_nodejs"
 	@echo "... bioloid_motion_accel"
 	@echo "... control_msgs_generate_messages_cpp"

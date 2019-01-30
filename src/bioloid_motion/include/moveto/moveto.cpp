@@ -16,6 +16,7 @@ bir::MoveTo::MoveTo(ros::NodeHandle& node, std::string p_odom_topic, std::string
     ros::Rate rate(2);
     while(ros::ok() && !_odomRecived){
         ros::spinOnce();
+        ROS_INFO_ONCE("Odom Topic isn't connect.. Retrying");
         rate.sleep();
     }
     ROS_INFO("Odom Topic Connected");
@@ -25,7 +26,12 @@ bir::MoveTo::MoveTo(ros::NodeHandle& node, std::string p_odom_topic, std::string
     // Publsiher Setting
     _pubCmdVel = _Node.advertise<geometry_msgs::Twist>(p_cmd_vel_topic, 20);
     // Class Config
-    _angularVelocityPID = new PID(3, 0.03, 0, 10);
+    _kP[ANGULAR] = _kP[LINEAR] = 1;
+    _kI[ANGULAR] = _kI[LINEAR] = 0;
+    _kD[ANGULAR] = _kI[LINEAR] = 0;
+    _angularVelocityPID = new PID(_kP[ANGULAR], _kI[ANGULAR], _kD[ANGULAR], 10);
+    _linearVelocityPID = new PID(_kP[LINEAR], _kI[LINEAR], _kD[LINEAR], 10);
+    _linearVelocityPID->setSetpoint(0.00);
     _end = false;
 }
 
@@ -58,22 +64,44 @@ void bir::MoveTo::subGoalCallback_point(const geometry_msgs::Point::ConstPtr& po
     ROS_INFO("Goal Recived: (%f,%f)", _poseTarget[X], _poseTarget[Y]);
 }
 
+void bir::MoveTo::setPIDConst(bool PID, double kP, double kI, double kD){
+    _kP[PID] = kP; _kI[PID] = kI; _kD[PID] = kD;
+}
+
+void bir::MoveTo::setLimits(bool velocityType, double value){
+    if(velocityType == ANGULAR) _maxAngularVelocity = value;
+    else _maxLinearVelocity = value;
+}
+
 void bir::MoveTo::goTo(double x, double y){
     _poseTarget[X] = x;
     _poseTarget[Y] = y;
+    _end = false;
 }
 
-void bir::MoveTo::run(){
+bool bir::MoveTo::run() {
+
     geometry_msgs::Twist velocityCommand;
-    velocityCommand.linear.x = 0.5;
     double distanceToTarget = sqrt(pow((_poseTarget[X] - _pose[X]),2) + pow((_poseTarget[Y] - _pose[Y]),2));
+    double linearVelocity = fabs(_linearVelocityPID->run(distanceToTarget));
+    if(linearVelocity >= _maxLinearVelocity) {
+        linearVelocity = _maxLinearVelocity;
+    }
+    velocityCommand.linear.x = linearVelocity;
+    
     if(distanceToTarget <= _tolerance) {
         _end = true;
         velocityCommand.angular.z = velocityCommand.linear.x = 0;
-    } else{
+    } else {
         double desiredAngle = atan2((_poseTarget[Y] - _pose[Y]), (_poseTarget[X] - _pose[X]));
         _angularVelocityPID->setSetpoint(desiredAngle);
         velocityCommand.angular.z = _angularVelocityPID->run(_pose[TH]);
+        if(velocityCommand.angular.z >= _maxAngularVelocity) {
+            velocityCommand.angular.z = _maxAngularVelocity;
+        }
     }
     _pubCmdVel.publish(velocityCommand);
+    if (_end) return true;
+    return false;
+    
 }

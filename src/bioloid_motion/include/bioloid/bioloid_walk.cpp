@@ -445,7 +445,7 @@ void Walker::walkStart(void)
 void Walker::walkStop(void)
 {
     if (_running) {
-        ROS_INFO_STREAM("Stopping...");
+        ROS_INFO_STREAM("Backing to stopped position...");
 		_running = false;
     }
 }

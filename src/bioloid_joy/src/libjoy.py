@@ -33,9 +33,9 @@ class JoyController:
             "vertical_crosskey" : 7
         }
 
-    def setJoyTopicName(self, self._joyTopicName, str(topicName)):
+    def setJoyTopicName(self, (topicName)):
         if not topicName:
-            print(topicName + "is an invalid name")
+            print(topicName + "is an invalid name.")
         else:
             self._joyTopicName = str(topicName)
             self._subJoy = rospy.Subscriber(self._namespace + self._joyTopicName, Joy, self.subJoyCallback)

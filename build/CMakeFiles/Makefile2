@@ -246,7 +246,7 @@ gtest/preinstall: gtest/gtest/preinstall
 gtest/CMakeFiles/gmock.dir/all:
 	$(MAKE) -f gtest/CMakeFiles/gmock.dir/build.make gtest/CMakeFiles/gmock.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gmock.dir/build.make gtest/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=30,31,32 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=22,23,24 "Built target gmock"
 .PHONY : gtest/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -278,7 +278,7 @@ clean: gtest/CMakeFiles/gmock.dir/clean
 gtest/CMakeFiles/gmock_main.dir/all:
 	$(MAKE) -f gtest/CMakeFiles/gmock_main.dir/build.make gtest/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gmock_main.dir/build.make gtest/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=33,34,35,36 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=25,26,27,28 "Built target gmock_main"
 .PHONY : gtest/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -329,7 +329,7 @@ gtest/gtest/preinstall:
 gtest/gtest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/gtest/CMakeFiles/gtest.dir/build.make gtest/gtest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/gtest/CMakeFiles/gtest.dir/build.make gtest/gtest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=37,38 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=29,30 "Built target gtest"
 .PHONY : gtest/gtest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -361,7 +361,7 @@ clean: gtest/gtest/CMakeFiles/gtest.dir/clean
 gtest/gtest/CMakeFiles/gtest_main.dir/all: gtest/gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/gtest/CMakeFiles/gtest_main.dir/build.make gtest/gtest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/gtest/CMakeFiles/gtest_main.dir/build.make gtest/gtest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=39,40 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=31,32 "Built target gtest_main"
 .PHONY : gtest/gtest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -2003,7 +2003,7 @@ clean: bioloid_joy/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
 bioloid_joy/CMakeFiles/libjoy.dir/all:
 	$(MAKE) -f bioloid_joy/CMakeFiles/libjoy.dir/build.make bioloid_joy/CMakeFiles/libjoy.dir/depend
 	$(MAKE) -f bioloid_joy/CMakeFiles/libjoy.dir/build.make bioloid_joy/CMakeFiles/libjoy.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=41,42 "Built target libjoy"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=33,34 "Built target libjoy"
 .PHONY : bioloid_joy/CMakeFiles/libjoy.dir/all
 
 # Include target in all.
@@ -2037,20 +2037,16 @@ clean: bioloid_joy/CMakeFiles/libjoy.dir/clean
 # Directory level rules for directory bioloid_motion
 
 # Convenience name for "all" pass in the directory.
-bioloid_motion/all: bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/all
 bioloid_motion/all: bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/all
 bioloid_motion/all: bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/all
 bioloid_motion/all: bioloid_motion/CMakeFiles/odom.dir/all
 bioloid_motion/all: bioloid_motion/CMakeFiles/bioloid_utils.dir/all
 bioloid_motion/all: bioloid_motion/CMakeFiles/acceleration.dir/all
-bioloid_motion/all: bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/all
-bioloid_motion/all: bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/all
 bioloid_motion/all: bioloid_motion/CMakeFiles/pid.dir/all
 bioloid_motion/all: bioloid_motion/CMakeFiles/bioloid_robot.dir/all
 bioloid_motion/all: bioloid_motion/CMakeFiles/moveto.dir/all
 bioloid_motion/all: bioloid_motion/CMakeFiles/bioloid_motion_accel.dir/all
 bioloid_motion/all: bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir/all
-bioloid_motion/all: bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/all
 
 .PHONY : bioloid_motion/all
 
@@ -2058,18 +2054,19 @@ bioloid_motion/all: bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/all
 bioloid_motion/clean: bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/control_toolbox_generate_messages_lisp.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/control_toolbox_generate_messages_cpp.dir/clean
-bioloid_motion/clean: bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_py.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/clean
-bioloid_motion/clean: bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/bioloid_motion_moveto.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/control_msgs_generate_messages_nodejs.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/nav_msgs_generate_messages_py.dir/clean
+bioloid_motion/clean: bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/clean
+bioloid_motion/clean: bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/nav_msgs_generate_messages_lisp.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/clean
+bioloid_motion/clean: bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/dynamic_reconfigure_gencfg.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/control_toolbox_generate_messages_eus.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/odom.dir/clean
@@ -2086,11 +2083,8 @@ bioloid_motion/clean: bioloid_motion/CMakeFiles/control_msgs_generate_messages_p
 bioloid_motion/clean: bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/control_toolbox_gencfg.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/clean
-bioloid_motion/clean: bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/nav_msgs_generate_messages_eus.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/clean
-bioloid_motion/clean: bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/clean
-bioloid_motion/clean: bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/nav_msgs_generate_messages_cpp.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/pid.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/bioloid_robot.dir/clean
@@ -2099,8 +2093,6 @@ bioloid_motion/clean: bioloid_motion/CMakeFiles/controller_manager_msgs_generate
 bioloid_motion/clean: bioloid_motion/CMakeFiles/bioloid_motion_accel.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/control_msgs_generate_messages_cpp.dir/clean
 bioloid_motion/clean: bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir/clean
-bioloid_motion/clean: bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/clean
-bioloid_motion/clean: bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/clean
 
 .PHONY : bioloid_motion/clean
 
@@ -2206,38 +2198,6 @@ clean: bioloid_motion/CMakeFiles/control_toolbox_generate_messages_cpp.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir
-
-# All Build rule for target.
-bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/all:
-	$(MAKE) -f bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/depend
-	$(MAKE) -f bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num= "Built target trajectory_msgs_generate_messages_nodejs"
-.PHONY : bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/all
-
-# Build rule for subdir invocation for target.
-bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documentos/nelso/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documentos/nelso/build/CMakeFiles 0
-.PHONY : bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_nodejs: bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_nodejs
-
-# clean rule for target.
-bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/clean
-.PHONY : bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/clean
-
-# clean rule for target.
-clean: bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
 # Target rules for target bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_py.dir
 
 # All Build rule for target.
@@ -2298,44 +2258,6 @@ bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/clean:
 
 # clean rule for target.
 clean: bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir
-
-# All Build rule for target.
-bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/all: bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/all
-bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/all: bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/all
-	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/depend
-	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=24,25 "Built target bioloid_motion_walk_test"
-.PHONY : bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/all
-
-# Include target in all.
-all: bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documentos/nelso/build/CMakeFiles 6
-	$(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documentos/nelso/build/CMakeFiles 0
-.PHONY : bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/rule
-
-# Convenience name for target.
-bioloid_motion_walk_test: bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/rule
-
-.PHONY : bioloid_motion_walk_test
-
-# clean rule for target.
-bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/clean:
-	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/clean
-.PHONY : bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/clean
-
-# clean rule for target.
-clean: bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/clean
 
 .PHONY : clean
 
@@ -2538,6 +2460,70 @@ clean: bioloid_motion/CMakeFiles/nav_msgs_generate_messages_py.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir
+
+# All Build rule for target.
+bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/all:
+	$(MAKE) -f bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/depend
+	$(MAKE) -f bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num= "Built target trajectory_msgs_generate_messages_nodejs"
+.PHONY : bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/all
+
+# Build rule for subdir invocation for target.
+bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documentos/nelso/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documentos/nelso/build/CMakeFiles 0
+.PHONY : bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+trajectory_msgs_generate_messages_nodejs: bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : trajectory_msgs_generate_messages_nodejs
+
+# clean rule for target.
+bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/clean
+.PHONY : bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/clean
+
+# clean rule for target.
+clean: bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir
+
+# All Build rule for target.
+bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num= "Built target controller_manager_msgs_generate_messages_cpp"
+.PHONY : bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documentos/nelso/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documentos/nelso/build/CMakeFiles 0
+.PHONY : bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+controller_manager_msgs_generate_messages_cpp: bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : controller_manager_msgs_generate_messages_cpp
+
+# clean rule for target.
+bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/clean
+.PHONY : bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/clean
+
+# clean rule for target.
+clean: bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target bioloid_motion/CMakeFiles/nav_msgs_generate_messages_lisp.dir
 
 # All Build rule for target.
@@ -2604,6 +2590,38 @@ bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/clean:
 
 # clean rule for target.
 clean: bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir
+
+# All Build rule for target.
+bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/all:
+	$(MAKE) -f bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/depend
+	$(MAKE) -f bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num= "Built target control_msgs_generate_messages_eus"
+.PHONY : bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/all
+
+# Build rule for subdir invocation for target.
+bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documentos/nelso/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documentos/nelso/build/CMakeFiles 0
+.PHONY : bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+control_msgs_generate_messages_eus: bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/rule
+
+.PHONY : control_msgs_generate_messages_eus
+
+# clean rule for target.
+bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/clean:
+	$(MAKE) -f bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/clean
+.PHONY : bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/clean
+
+# clean rule for target.
+clean: bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/clean
 
 .PHONY : clean
 
@@ -2678,7 +2696,7 @@ clean: bioloid_motion/CMakeFiles/control_toolbox_generate_messages_eus.dir/clean
 bioloid_motion/CMakeFiles/odom.dir/all:
 	$(MAKE) -f bioloid_motion/CMakeFiles/odom.dir/build.make bioloid_motion/CMakeFiles/odom.dir/depend
 	$(MAKE) -f bioloid_motion/CMakeFiles/odom.dir/build.make bioloid_motion/CMakeFiles/odom.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=45,46 "Built target odom"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=37,38 "Built target odom"
 .PHONY : bioloid_motion/CMakeFiles/odom.dir/all
 
 # Include target in all.
@@ -2875,7 +2893,7 @@ clean: bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/
 bioloid_motion/CMakeFiles/bioloid_utils.dir/all:
 	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_utils.dir/build.make bioloid_motion/CMakeFiles/bioloid_utils.dir/depend
 	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_utils.dir/build.make bioloid_motion/CMakeFiles/bioloid_utils.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=28,29 "Built target bioloid_utils"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=20,21 "Built target bioloid_utils"
 .PHONY : bioloid_motion/CMakeFiles/bioloid_utils.dir/all
 
 # Include target in all.
@@ -3135,43 +3153,6 @@ clean: bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.di
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target bioloid_motion/CMakeFiles/bioloid_motion_robot.dir
-
-# All Build rule for target.
-bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/all:
-	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/depend
-	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=18,19 "Built target bioloid_motion_robot"
-.PHONY : bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/all
-
-# Include target in all.
-all: bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documentos/nelso/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documentos/nelso/build/CMakeFiles 0
-.PHONY : bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/rule
-
-# Convenience name for target.
-bioloid_motion_robot: bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/rule
-
-.PHONY : bioloid_motion_robot
-
-# clean rule for target.
-bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/clean:
-	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/clean
-.PHONY : bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/clean
-
-# clean rule for target.
-clean: bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
 # Target rules for target bioloid_motion/CMakeFiles/nav_msgs_generate_messages_eus.dir
 
 # All Build rule for target.
@@ -3236,75 +3217,6 @@ clean: bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/cl
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir
-
-# All Build rule for target.
-bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/all:
-	$(MAKE) -f bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/depend
-	$(MAKE) -f bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num= "Built target controller_manager_msgs_generate_messages_cpp"
-.PHONY : bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/all
-
-# Build rule for subdir invocation for target.
-bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documentos/nelso/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documentos/nelso/build/CMakeFiles 0
-.PHONY : bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-controller_manager_msgs_generate_messages_cpp: bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : controller_manager_msgs_generate_messages_cpp
-
-# clean rule for target.
-bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/clean:
-	$(MAKE) -f bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/clean
-.PHONY : bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/clean
-
-# clean rule for target.
-clean: bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target bioloid_motion/CMakeFiles/bioloid_motion_utils.dir
-
-# All Build rule for target.
-bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/all:
-	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/depend
-	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=20,21 "Built target bioloid_motion_utils"
-.PHONY : bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/all
-
-# Include target in all.
-all: bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documentos/nelso/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documentos/nelso/build/CMakeFiles 0
-.PHONY : bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/rule
-
-# Convenience name for target.
-bioloid_motion_utils: bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/rule
-
-.PHONY : bioloid_motion_utils
-
-# clean rule for target.
-bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/clean:
-	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/clean
-.PHONY : bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/clean
-
-# clean rule for target.
-clean: bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
 # Target rules for target bioloid_motion/CMakeFiles/nav_msgs_generate_messages_cpp.dir
 
 # All Build rule for target.
@@ -3343,7 +3255,7 @@ clean: bioloid_motion/CMakeFiles/nav_msgs_generate_messages_cpp.dir/clean
 bioloid_motion/CMakeFiles/pid.dir/all:
 	$(MAKE) -f bioloid_motion/CMakeFiles/pid.dir/build.make bioloid_motion/CMakeFiles/pid.dir/depend
 	$(MAKE) -f bioloid_motion/CMakeFiles/pid.dir/build.make bioloid_motion/CMakeFiles/pid.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=47,48 "Built target pid"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=39,40 "Built target pid"
 .PHONY : bioloid_motion/CMakeFiles/pid.dir/all
 
 # Include target in all.
@@ -3380,7 +3292,7 @@ clean: bioloid_motion/CMakeFiles/pid.dir/clean
 bioloid_motion/CMakeFiles/bioloid_robot.dir/all:
 	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_robot.dir/build.make bioloid_motion/CMakeFiles/bioloid_robot.dir/depend
 	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_robot.dir/build.make bioloid_motion/CMakeFiles/bioloid_robot.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=26,27 "Built target bioloid_robot"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=18,19 "Built target bioloid_robot"
 .PHONY : bioloid_motion/CMakeFiles/bioloid_robot.dir/all
 
 # Include target in all.
@@ -3417,7 +3329,7 @@ clean: bioloid_motion/CMakeFiles/bioloid_robot.dir/clean
 bioloid_motion/CMakeFiles/moveto.dir/all:
 	$(MAKE) -f bioloid_motion/CMakeFiles/moveto.dir/build.make bioloid_motion/CMakeFiles/moveto.dir/depend
 	$(MAKE) -f bioloid_motion/CMakeFiles/moveto.dir/build.make bioloid_motion/CMakeFiles/moveto.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=43,44 "Built target moveto"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=35,36 "Built target moveto"
 .PHONY : bioloid_motion/CMakeFiles/moveto.dir/all
 
 # Include target in all.
@@ -3584,76 +3496,6 @@ bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir/clean:
 
 # clean rule for target.
 clean: bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir
-
-# All Build rule for target.
-bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/all:
-	$(MAKE) -f bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/depend
-	$(MAKE) -f bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num= "Built target control_msgs_generate_messages_eus"
-.PHONY : bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/all
-
-# Build rule for subdir invocation for target.
-bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documentos/nelso/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documentos/nelso/build/CMakeFiles 0
-.PHONY : bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-control_msgs_generate_messages_eus: bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/rule
-
-.PHONY : control_msgs_generate_messages_eus
-
-# clean rule for target.
-bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/clean:
-	$(MAKE) -f bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/clean
-.PHONY : bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/clean
-
-# clean rule for target.
-clean: bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target bioloid_motion/CMakeFiles/bioloid_motion_walk.dir
-
-# All Build rule for target.
-bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/all: bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/all
-bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/all: bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/all
-	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/depend
-	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/teo/Documentos/nelso/build/CMakeFiles --progress-num=22,23 "Built target bioloid_motion_walk"
-.PHONY : bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/all
-
-# Include target in all.
-all: bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documentos/nelso/build/CMakeFiles 6
-	$(MAKE) -f CMakeFiles/Makefile2 bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documentos/nelso/build/CMakeFiles 0
-.PHONY : bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/rule
-
-# Convenience name for target.
-bioloid_motion_walk: bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/rule
-
-.PHONY : bioloid_motion_walk
-
-# clean rule for target.
-bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/clean:
-	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/clean
-.PHONY : bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/clean
-
-# clean rule for target.
-clean: bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/clean
 
 .PHONY : clean
 

@@ -946,19 +946,6 @@ control_toolbox_generate_messages_cpp/fast:
 .PHONY : control_toolbox_generate_messages_cpp/fast
 
 #=============================================================================
-# Target rules for targets named trajectory_msgs_generate_messages_nodejs
-
-# Build rule for target.
-trajectory_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_nodejs
-.PHONY : trajectory_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
-.PHONY : trajectory_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
 # Target rules for targets named trajectory_msgs_generate_messages_py
 
 # Build rule for target.
@@ -983,19 +970,6 @@ dynamic_reconfigure_generate_messages_cpp: cmake_check_build_system
 dynamic_reconfigure_generate_messages_cpp/fast:
 	$(MAKE) -f bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
 .PHONY : dynamic_reconfigure_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named bioloid_motion_walk_test
-
-# Build rule for target.
-bioloid_motion_walk_test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 bioloid_motion_walk_test
-.PHONY : bioloid_motion_walk_test
-
-# fast build rule for target.
-bioloid_motion_walk_test/fast:
-	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_walk_test.dir/build
-.PHONY : bioloid_motion_walk_test/fast
 
 #=============================================================================
 # Target rules for targets named bioloid_motion_moveto
@@ -1076,6 +1050,32 @@ nav_msgs_generate_messages_py/fast:
 .PHONY : nav_msgs_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named trajectory_msgs_generate_messages_nodejs
+
+# Build rule for target.
+trajectory_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 trajectory_msgs_generate_messages_nodejs
+.PHONY : trajectory_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make bioloid_motion/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
+.PHONY : trajectory_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named controller_manager_msgs_generate_messages_cpp
+
+# Build rule for target.
+controller_manager_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 controller_manager_msgs_generate_messages_cpp
+.PHONY : controller_manager_msgs_generate_messages_cpp
+
+# fast build rule for target.
+controller_manager_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build
+.PHONY : controller_manager_msgs_generate_messages_cpp/fast
+
+#=============================================================================
 # Target rules for targets named nav_msgs_generate_messages_lisp
 
 # Build rule for target.
@@ -1100,6 +1100,19 @@ bioloid_motion_new_walk: cmake_check_build_system
 bioloid_motion_new_walk/fast:
 	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_new_walk.dir/build
 .PHONY : bioloid_motion_new_walk/fast
+
+#=============================================================================
+# Target rules for targets named control_msgs_generate_messages_eus
+
+# Build rule for target.
+control_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 control_msgs_generate_messages_eus
+.PHONY : control_msgs_generate_messages_eus
+
+# fast build rule for target.
+control_msgs_generate_messages_eus/fast:
+	$(MAKE) -f bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/build
+.PHONY : control_msgs_generate_messages_eus/fast
 
 #=============================================================================
 # Target rules for targets named dynamic_reconfigure_gencfg
@@ -1310,19 +1323,6 @@ dynamic_reconfigure_generate_messages_nodejs/fast:
 .PHONY : dynamic_reconfigure_generate_messages_nodejs/fast
 
 #=============================================================================
-# Target rules for targets named bioloid_motion_robot
-
-# Build rule for target.
-bioloid_motion_robot: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 bioloid_motion_robot
-.PHONY : bioloid_motion_robot
-
-# fast build rule for target.
-bioloid_motion_robot/fast:
-	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_robot.dir/build
-.PHONY : bioloid_motion_robot/fast
-
-#=============================================================================
 # Target rules for targets named nav_msgs_generate_messages_eus
 
 # Build rule for target.
@@ -1347,32 +1347,6 @@ dynamic_reconfigure_generate_messages_py: cmake_check_build_system
 dynamic_reconfigure_generate_messages_py/fast:
 	$(MAKE) -f bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build.make bioloid_motion/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build
 .PHONY : dynamic_reconfigure_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named controller_manager_msgs_generate_messages_cpp
-
-# Build rule for target.
-controller_manager_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 controller_manager_msgs_generate_messages_cpp
-.PHONY : controller_manager_msgs_generate_messages_cpp
-
-# fast build rule for target.
-controller_manager_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build.make bioloid_motion/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build
-.PHONY : controller_manager_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named bioloid_motion_utils
-
-# Build rule for target.
-bioloid_motion_utils: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 bioloid_motion_utils
-.PHONY : bioloid_motion_utils
-
-# fast build rule for target.
-bioloid_motion_utils/fast:
-	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_utils.dir/build
-.PHONY : bioloid_motion_utils/fast
 
 #=============================================================================
 # Target rules for targets named nav_msgs_generate_messages_cpp
@@ -1478,32 +1452,6 @@ bioloid_motion_new_walk_test/fast:
 	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_new_walk_test.dir/build
 .PHONY : bioloid_motion_new_walk_test/fast
 
-#=============================================================================
-# Target rules for targets named control_msgs_generate_messages_eus
-
-# Build rule for target.
-control_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 control_msgs_generate_messages_eus
-.PHONY : control_msgs_generate_messages_eus
-
-# fast build rule for target.
-control_msgs_generate_messages_eus/fast:
-	$(MAKE) -f bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/build.make bioloid_motion/CMakeFiles/control_msgs_generate_messages_eus.dir/build
-.PHONY : control_msgs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named bioloid_motion_walk
-
-# Build rule for target.
-bioloid_motion_walk: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 bioloid_motion_walk
-.PHONY : bioloid_motion_walk
-
-# fast build rule for target.
-bioloid_motion_walk/fast:
-	$(MAKE) -f bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/build.make bioloid_motion/CMakeFiles/bioloid_motion_walk.dir/build
-.PHONY : bioloid_motion_walk/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1577,18 +1525,19 @@ help:
 	@echo "... trajectory_msgs_generate_messages_eus"
 	@echo "... control_toolbox_generate_messages_lisp"
 	@echo "... control_toolbox_generate_messages_cpp"
-	@echo "... trajectory_msgs_generate_messages_nodejs"
 	@echo "... trajectory_msgs_generate_messages_py"
 	@echo "... dynamic_reconfigure_generate_messages_cpp"
-	@echo "... bioloid_motion_walk_test"
 	@echo "... bioloid_motion_moveto"
 	@echo "... trajectory_msgs_generate_messages_cpp"
 	@echo "... controller_manager_msgs_generate_messages_py"
 	@echo "... control_msgs_generate_messages_nodejs"
 	@echo "... controller_manager_msgs_generate_messages_lisp"
 	@echo "... nav_msgs_generate_messages_py"
+	@echo "... trajectory_msgs_generate_messages_nodejs"
+	@echo "... controller_manager_msgs_generate_messages_cpp"
 	@echo "... nav_msgs_generate_messages_lisp"
 	@echo "... bioloid_motion_new_walk"
+	@echo "... control_msgs_generate_messages_eus"
 	@echo "... dynamic_reconfigure_gencfg"
 	@echo "... control_toolbox_generate_messages_eus"
 	@echo "... odom"
@@ -1605,11 +1554,8 @@ help:
 	@echo "... dynamic_reconfigure_generate_messages_eus"
 	@echo "... control_toolbox_gencfg"
 	@echo "... dynamic_reconfigure_generate_messages_nodejs"
-	@echo "... bioloid_motion_robot"
 	@echo "... nav_msgs_generate_messages_eus"
 	@echo "... dynamic_reconfigure_generate_messages_py"
-	@echo "... controller_manager_msgs_generate_messages_cpp"
-	@echo "... bioloid_motion_utils"
 	@echo "... nav_msgs_generate_messages_cpp"
 	@echo "... pid"
 	@echo "... bioloid_robot"
@@ -1618,8 +1564,6 @@ help:
 	@echo "... bioloid_motion_accel"
 	@echo "... control_msgs_generate_messages_cpp"
 	@echo "... bioloid_motion_new_walk_test"
-	@echo "... control_msgs_generate_messages_eus"
-	@echo "... bioloid_motion_walk"
 .PHONY : help
 
 

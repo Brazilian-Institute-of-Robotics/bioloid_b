@@ -1,10 +1,10 @@
 <launch>
-
+    <arg name="namespace" default="typea"/>
     <!-- Load controller settings -->
-    <rosparam file="$(find bioloid_config)/config/bioloid_controllers_gazebo_multi.yaml" command="load" ns="/typea"/>
+    <rosparam file="$(find bioloid_config)/config/bioloid_controllers_gazebo_multi.yaml" command="load" ns="/$(arg namespace)"/>
 
     <!-- Load controller manager -->
-    <node name="control_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="--namespace=/typea
+    <node name="$(arg namespace)" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="--namespace=/$(arg namespace)
     joint_state_controller
     
 	l_shoulder_swing_joint_position_controller
@@ -29,5 +29,4 @@
     r_ankle_swing_joint_position_controller
     r_ankle_lateral_joint_position_controller 
     "/>
-
 </launch>

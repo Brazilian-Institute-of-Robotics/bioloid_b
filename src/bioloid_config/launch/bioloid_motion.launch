@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
     <!-- Load Walk Config File -->
-    <rosparam file="$(find bioloid_motion)/config/walk.yaml" command="load"/>
+    <rosparam file="$(find bioloid_motion)/config/walk.yaml" command="load" ns="/typea"/>
     <!-- Launch Walker Script -->
-    <node name="typea_walker" ns="/typea/" pkg="bioloid_motion" type="robot_motion_walk" output="screen"/>
+    <node name="typea_walker" ns="/typea" pkg="bioloid_motion" type="bioloid_motion_new_walk" output="screen"/>
 </launch>

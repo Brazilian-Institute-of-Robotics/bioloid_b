@@ -18,7 +18,7 @@
 
 #include <bioloid/bioloid_robot.hpp>
 
-Bioloid::Bioloid():	_PrivNode("~"),	_Node("/typea/") {
+Bioloid::Bioloid():	_PrivNode("~"),	_Node("") {
   ROS_ASSERT( init() );
 }
 
@@ -33,7 +33,6 @@ bool Bioloid::init(void) {
 	ROS_ASSERT(_joints.empty());
 	// initialize subscribers
 	_subJointStates  = _Node.subscribe(_namespace + "joint_states", 1, &Bioloid::joint_callback, this);
-
 	ROS_INFO_STREAM("+Waiting for joints to be populated...");
 
 	while (ros::ok()) {

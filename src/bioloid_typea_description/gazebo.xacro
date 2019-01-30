@@ -4,13 +4,12 @@
 
     <gazebo>
         <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-            <robotNamespace>/typea</robotNamespace>
             <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
         </plugin>
 		<plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
 		    <alwaysOn>true</alwaysOn>
 		    <bodyName>imu_link</bodyName>
-		    <topicName>/typea/imu</topicName>
+		    <topicName>imu</topicName>
 		    <serviceName>imu_service</serviceName>
 		    <gaussianNoise>2.89e-08</gaussianNoise>
             <frameName>world</frameName>
@@ -21,7 +20,7 @@
               <alwaysOn>true</alwaysOn>
               <updateRate>50.0</updateRate>
               <bodyName>base_link</bodyName>
-              <topicName>typea/position</topicName>
+              <topicName>position</topicName>
               <gaussianNoise>0.01</gaussianNoise>
               <frameName>world</frameName>
               <xyzOffsets>0 0 0</xyzOffsets>

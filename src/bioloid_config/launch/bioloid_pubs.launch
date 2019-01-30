@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find bioloid_typea_description)/typea.xacro'" />
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find bioloid_typea_description)/typea.xacro'"/>
     <rosparam param="source_list">['ax_joint_states']</rosparam>
     <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">            
         <remap from="/joint_state" to="/typea/joint_state"/>

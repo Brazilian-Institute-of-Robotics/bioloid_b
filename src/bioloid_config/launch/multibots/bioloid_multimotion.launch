@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="namespace" default="typea"/>
+    <!-- Load Walk Config File -->
+    <rosparam file="$(find bioloid_motion)/config/walk.yaml" command="load" ns="/$(arg namespace)"/>
+    <!-- Launch Walker Script -->
+    <node name="typea_walker" ns="/$(arg namespace)" pkg="bioloid_motion" type="bioloid_motion_new_walk" output="screen"/>
+</launch>

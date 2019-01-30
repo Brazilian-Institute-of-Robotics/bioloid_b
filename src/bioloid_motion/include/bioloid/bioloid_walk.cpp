@@ -392,7 +392,7 @@ void WalkFunction::print(void)
 	}
 }
 
-Walker::Walker(Bioloid *robot): _PrivNode("Walker"), _Robot(robot), _running(false), _name("Walker") {
+Walker::Walker(Bioloid *robot): _PrivNode(""), _Robot(robot), _running(false), _name("~") {
 	// Load rosparams
 	std::size_t error = 0;
 	error += !rosparam_shortcuts::get(_name, _PrivNode, "loop_hz", _loop_hz);

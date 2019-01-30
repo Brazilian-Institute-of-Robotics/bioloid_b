@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="namespace" default="typea"/>
+    <arg name="pose" default="-x 0 -y 0 -z 0.3"/>
+    <arg name="gazeboOnOff" default="false"/>
+
+    <!-- Load URDF -->
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find bioloid_typea_description)/typea.xacro'"/>
+    <!-- Load Empty World -->
+    <include if="$(arg gazeboOnOff)" file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="worlds/empty.world"/>
+        <arg name="paused" value="true"/> <!-- Launch Paused -->
+    </include>
+    <!-- Spawn Robot (Nelso) -->
+    <node name="spawn_urdf_$(arg namespace)" pkg="gazebo_ros" type="spawn_model" args="$(arg pose) -urdf -param robot_description -model $(arg namespace) -robot_namespace $(arg namespace)" />
+
+</launch>

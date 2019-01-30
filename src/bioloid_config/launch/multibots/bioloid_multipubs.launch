@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="namespace" default="typea"/>
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find bioloid_typea_description)/typea.xacro'" />
+    <rosparam param="source_list">['ax_joint_states']</rosparam>
+    <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher_$(arg namespace)">            
+        <remap from="/joint_state" to="/$(arg namespace)/joint_state"/>
+    </node>
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher_$(arg namespace)"/>
+    <node pkg="tf" type="static_transform_publisher" ns="$(arg namespace)" name="static_world_to_odom_publisher" args="0 0 0 0 0 0 world odom 100"/>
+    <node pkg="tf" type="static_transform_publisher" ns="$(arg namespace)" name="static_odom_to_base_link_publisher" args="0 0 0.29 0 0 0 odom base_link 100"/>
+</launch>

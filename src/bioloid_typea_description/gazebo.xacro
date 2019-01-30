@@ -13,6 +13,7 @@
 		    <topicName>/typea/imu</topicName>
 		    <serviceName>imu_service</serviceName>
 		    <gaussianNoise>2.89e-08</gaussianNoise>
+            <frameName>world</frameName>
 		    <updateRate>50.0</updateRate>
 		    <visualize>true</visualize>
 		</plugin>
@@ -31,10 +32,10 @@
         <transmission name="${prefix}_shoulder_swing_joint_tran">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="${prefix}_shoulder_swing_joint">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
             <actuator name="${prefix}_shoulder_swing_joint_motor">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
@@ -43,10 +44,10 @@
         <transmission name="${prefix}_shoulder_lateral_joint_tran">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="${prefix}_shoulder_lateral_joint">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
             <actuator name="${prefix}_shoulder_lateral_joint_motor">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
@@ -55,10 +56,10 @@
         <transmission name="${prefix}_elbow_joint_tran">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="${prefix}_elbow_joint">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
             <actuator name="${prefix}_elbow_joint_motor">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
@@ -67,10 +68,10 @@
         <transmission name="${prefix}_hip_twist_joint_tran">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="${prefix}_hip_twist_joint">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
             <actuator name="${prefix}_hip_twist_joint_motor">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
@@ -79,10 +80,10 @@
         <transmission name="${prefix}_hip_lateral_joint_tran">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="${prefix}_hip_lateral_joint">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
             <actuator name="${prefix}_hip_lateral_joint_motor">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
@@ -91,10 +92,10 @@
         <transmission name="${prefix}_hip_swing_joint_tran">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="${prefix}_hip_swing_joint">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
             <actuator name="${prefix}_hip_swing_joint_motor">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
@@ -103,10 +104,10 @@
         <transmission name="${prefix}_knee_joint_tran">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="${prefix}_knee_joint">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
             <actuator name="${prefix}_knee_joint_motor">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
@@ -115,10 +116,10 @@
         <transmission name="${prefix}_ankle_swing_joint_tran">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="${prefix}_ankle_swing_joint">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
             <actuator name="${prefix}_ankle_swing_joint_motor">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
@@ -127,10 +128,10 @@
         <transmission name="${prefix}_ankle_lateral_joint_tran">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="${prefix}_ankle_lateral_joint">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
             <actuator name="${prefix}_ankle_lateral_joint_motor">
-                <hardwareInterface>EffortJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>

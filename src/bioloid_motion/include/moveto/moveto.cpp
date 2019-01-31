@@ -21,8 +21,10 @@ bir::MoveTo::MoveTo(ros::NodeHandle& node, std::string p_odom_topic, std::string
     }
     ROS_INFO("Odom Topic Connected");
     // Goal Subscriber Setting
-    _subGoal_pose = _Node.subscribe("/move_base_simple/goal", 1, &MoveTo::subGoalCallback_pose, this);
-    _subGoal_point = _Node.subscribe("/typea/goal_point", 1, &MoveTo::subGoalCallback_point, this);
+    _goalPoseTopic = "/move_base_simple/goal";
+    _goalPointTopic = "goal_point";
+    _subGoal_pose = _Node.subscribe(_goalPoseTopic, 1, &MoveTo::subGoalCallback_pose, this);
+    _subGoal_point = _Node.subscribe(_goalPointTopic, 1, &MoveTo::subGoalCallback_point, this);
     // Publsiher Setting
     _pubCmdVel = _Node.advertise<geometry_msgs::Twist>(p_cmd_vel_topic, 20);
     // Class Config
@@ -54,6 +56,13 @@ void bir::MoveTo::subOdomCallback(const nav_msgs::Odometry::ConstPtr& msg){ // U
     tf::Matrix3x3(quartenion).getRPY(row, pitch, _pose[TH]);
 }
 
+void bir::MoveTo::setGoal(GOAL goal, std::string new_name){
+    if(goal == POINT) {
+        _goalPointTopic = new_name;
+    } else if(goal == POSE) {
+        _goalPoseTopic = new_name;
+    }
+}
 void bir::MoveTo::subGoalCallback_pose(const geometry_msgs::PoseStamped::ConstPtr& pose){
     goTo(pose->pose.position.x, pose->pose.position.y);
     ROS_INFO("Goal Recived: (%f,%f)", _poseTarget[X], _poseTarget[Y]);

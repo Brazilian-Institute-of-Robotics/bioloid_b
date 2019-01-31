@@ -10,6 +10,10 @@ namespace bir{
         public:
             MoveTo(ros::NodeHandle&, std::string p_odom_topic, std::string p_cmd_vel_topic, double p_tolerance);
             void goTo(double, double);
+            enum GOAL {POSE, POINT};
+            void setGoal(GOAL, std::string);
+            void setPIDConst(bool, double, double, double);
+            void setLimits(bool, double);
             bool run();
             enum {ANGULAR, LINEAR};
         private:
@@ -18,6 +22,8 @@ namespace bir{
             ros::Subscriber _subGoal_pose;
             ros::Subscriber _subGoal_point;
             ros::Publisher _pubCmdVel;
+            std::string _goalPoseTopic;
+            std::string _goalPointTopic;
             bool _odomRecived, _end;
             double _tolerance;
             double _poseTarget[2];
@@ -28,8 +34,6 @@ namespace bir{
             PID* _linearVelocityPID;
             double _maxAngularVelocity = 1.5;
             double _maxLinearVelocity = 1.1;
-            void setPIDConst(bool, double, double, double);
-            void setLimits(bool, double);
             void subOdomCallback(const nav_msgs::Odometry::ConstPtr&);
             void subGoalCallback_point(const geometry_msgs::Point::ConstPtr&);
             void subGoalCallback_pose(const geometry_msgs::PoseStamped::ConstPtr&);

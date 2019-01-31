@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="device" default="/dev/input/js0"/>
+    <arg name="namespace" default="typea"/>
+    <param name="joy_node/dev" value="$(arg device)"/>
+    <node pkg="joy" type="joy_node" ns="/$(arg namespace)" name="joy_node"/>
+    <node pkg="bioloid_joy" type="bioloid_joy_node" ns="/$(arg namespace)" name="bioloid_joy_node" />
+</launch>

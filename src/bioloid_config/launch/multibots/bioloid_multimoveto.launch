@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="namespace" default="typea"/>
+    <node pkg="bioloid_motion" ns="/$(arg namespace)" type="bioloid_motion_moveto" name="bioloid_motion_moveto" />
+</launch>

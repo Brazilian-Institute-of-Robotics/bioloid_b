@@ -6,7 +6,7 @@ int main(int argc, char** argv){
     ros::init(argc, argv, "joy_interface");
     ros::NodeHandle node;
     ros::Publisher PubCmdVel = node.advertise<geometry_msgs::Twist>("cmd_vel", 2);
-    bir::JoyController Controller(node,"/typea/");
+    bir::JoyController Controller(node,"");
     ros::Rate rate(50);
     ROS_INFO("Joy Node Started");
     while(ros::ok()){

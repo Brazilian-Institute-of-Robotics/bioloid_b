@@ -1,13 +1,15 @@
 <?xml version="1.0"?>
 <launch>
-    <arg name="joy" default="false" doc="Control Joy Launch"/>
-    <arg name="moveto" default="false"/>
+    <arg name="joy_1" default="true" doc="Control Joy Launch"/>
+    <arg name="moveto_1" default="false"/>
+    <arg name="joy_2" default="false" doc="Control Joy Launch"/>
+    <arg name="moveto_2" default="true"/>
     <arg name="gazebo" default="true"/>
     <arg name="rviz" default="false"/>
     <arg name="robot_1" default="nelso"/>
-    <arg name="robot_1_pose" default="-x 0 -y 0 -z 0.3"/>
-    <arg name="robot_2" default="outro"/>
-    <arg name="robot_2_pose" default="-x 1 -y 0 -z 0.3"/>
+    <arg name="robot_1_pose" default="-x 3 -y 2 -z 0.3"/>
+    <arg name="robot_2" default="slender"/>
+    <arg name="robot_2_pose" default="-x -1 -y 0 -z 0.3"/>
     <group>
         <param name="tf_prefix" value="$(arg robot_1)"/>
         <!-- Launch Pubs -->
@@ -15,9 +17,13 @@
             <arg name="namespace" default="$(arg robot_1)"/>
         </include>
         <!-- Joy Launch -->
-        <include if="$(arg joy)" file="$(find bioloid_joy)/launch/bioloid_joy.launch"/>
+        <include if="$(arg joy_1)" file="$(find bioloid_config)/launch/multibots/bioloid_multijoy.launch">
+            <arg name="namespace" default="$(arg robot_1)"/>
+        </include>
         <!-- Move To Launch -->
-        <include if="$(arg moveto)" file="$(find bioloid_config)/launch/bioloid_moveto.launch" />
+        <include if="$(arg moveto_1)" file="$(find bioloid_config)/launch/multibots/bioloid_multimoveto.launch">
+            <arg name="namespace" value="$(arg robot_1)"/>
+        </include>
         <!-- Launch Gazebo Spawn -->
         <include if="$(arg gazebo)" file="$(find bioloid_config)/launch/multibots/bioloid_multigazebo.launch">
             <arg name="namespace" default="$(arg robot_1)"/>
@@ -41,9 +47,12 @@
             <arg name="namespace" default="$(arg robot_2)"/>
         </include>
         <!-- Joy Launch -->
-        <include if="$(arg joy)" file="$(find bioloid_joy)/launch/bioloid_joy.launch"/>
-        <!-- Move To Launch -->
-        <include if="$(arg moveto)" file="$(find bioloid_config)/launch/bioloid_moveto.launch" />
+        <include if="$(arg joy_2)" file="$(find bioloid_config)/launch/multibots/bioloid_multijoy.launch">
+            <arg name="namespace" default="$(arg robot_2)"/>
+        </include>        <!-- Move To Launch -->
+        <include if="$(arg moveto_2)" file="$(find bioloid_config)/launch/multibots/bioloid_multimoveto.launch">
+            <arg name="namespace" default="$(arg robot_2)"/>
+        </include>
         <!-- Launch Gazebo Spawn -->
         <include if="$(arg gazebo)" file="$(find bioloid_config)/launch/multibots/bioloid_multigazebo.launch">
             <arg name="namespace" default="$(arg robot_2)"/>

@@ -6,7 +6,7 @@
 #include <geometry_msgs/PoseStamped.h>
 #include <geometry_msgs/Point.h>
 #include <pid/pid.hpp>
-
+#define is_negative(x) ((x < 0) ? true : false)
 #include "moveto.hpp"
 
 bir::MoveTo::MoveTo(ros::NodeHandle& node, std::string p_odom_topic, std::string p_cmd_vel_topic, double tolerance): _Node(node), _tolerance(tolerance) {
@@ -28,9 +28,13 @@ bir::MoveTo::MoveTo(ros::NodeHandle& node, std::string p_odom_topic, std::string
     // Publsiher Setting
     _pubCmdVel = _Node.advertise<geometry_msgs::Twist>(p_cmd_vel_topic, 20);
     // Class Config
-    _kP[ANGULAR] = _kP[LINEAR] = 1;
-    _kI[ANGULAR] = _kI[LINEAR] = 0;
-    _kD[ANGULAR] = _kI[LINEAR] = 0;
+    _kP[LINEAR] = 1;
+    _kI[LINEAR] = 0;
+    _kI[LINEAR] = 0;
+    
+    _kP[ANGULAR] = 1;
+    _kI[ANGULAR] = 0.00;
+    _kD[ANGULAR] = 0.0;
     _angularVelocityPID = new PID(_kP[ANGULAR], _kI[ANGULAR], _kD[ANGULAR], 10);
     _linearVelocityPID = new PID(_kP[LINEAR], _kI[LINEAR], _kD[LINEAR], 10);
     _linearVelocityPID->setSetpoint(0.00);
@@ -54,6 +58,8 @@ void bir::MoveTo::subOdomCallback(const nav_msgs::Odometry::ConstPtr& msg){ // U
     quartenion.setW(msg->pose.pose.orientation.w);
     double row, pitch;
     tf::Matrix3x3(quartenion).getRPY(row, pitch, _pose[TH]);
+    if(_pose[TH] > 3.1415) _pose[TH] -= 3.1415*2;
+    else if(_pose[TH] < -3.1415) _pose[TH] += 3.1415*2;
 }
 
 void bir::MoveTo::setGoalTopicName(GOAL goal, std::string new_name){
@@ -92,21 +98,27 @@ bool bir::MoveTo::run() {
 
     geometry_msgs::Twist velocityCommand;
     double distanceToTarget = sqrt(pow((_poseTarget[X] - _pose[X]),2) + pow((_poseTarget[Y] - _pose[Y]),2));
-    double linearVelocity = fabs(_linearVelocityPID->run(distanceToTarget));
-    if(linearVelocity >= _maxLinearVelocity) {
-        linearVelocity = _maxLinearVelocity;
-    }
-    velocityCommand.linear.x = linearVelocity;
-    
+
     if(distanceToTarget <= _tolerance) {
         _end = true;
         velocityCommand.angular.z = velocityCommand.linear.x = 0;
     } else {
         double desiredAngle = atan2((_poseTarget[Y] - _pose[Y]), (_poseTarget[X] - _pose[X]));
+        // Linear Velocity
+        double linearVelocity = fabs(_linearVelocityPID->run(distanceToTarget));
+        velocityCommand.angular.y = desiredAngle - _pose[TH];
+        if( ((desiredAngle - _pose[TH]) >= 1.5707) || ((desiredAngle - _pose[TH]) <= -1.5707) ){
+            linearVelocity = 0;
+        } else if(linearVelocity >= _maxLinearVelocity) {
+            linearVelocity = _maxLinearVelocity;
+        }
+        velocityCommand.linear.x = linearVelocity;
+        // Angular Velocity
         _angularVelocityPID->setSetpoint(desiredAngle);
         velocityCommand.angular.z = _angularVelocityPID->run(_pose[TH]);
-        if(velocityCommand.angular.z >= _maxAngularVelocity) {
-            velocityCommand.angular.z = _maxAngularVelocity;
+        if(fabs(velocityCommand.angular.z) > _maxAngularVelocity) {
+            if(is_negative(velocityCommand.angular.z)) velocityCommand.angular.z = -_maxAngularVelocity;
+            else velocityCommand.angular.z = _maxAngularVelocity;
         }
     }
     _pubCmdVel.publish(velocityCommand);

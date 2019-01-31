@@ -56,7 +56,7 @@ void bir::MoveTo::subOdomCallback(const nav_msgs::Odometry::ConstPtr& msg){ // U
     tf::Matrix3x3(quartenion).getRPY(row, pitch, _pose[TH]);
 }
 
-void bir::MoveTo::setGoal(GOAL goal, std::string new_name){
+void bir::MoveTo::setGoalTopicName(GOAL goal, std::string new_name){
     if(goal == POINT) {
         _goalPointTopic = new_name;
     } else if(goal == POSE) {

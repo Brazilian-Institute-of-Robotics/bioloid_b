@@ -12,7 +12,7 @@
 bir::MoveTo::MoveTo(ros::NodeHandle& node, std::string p_odom_topic, std::string p_cmd_vel_topic, double tolerance): _Node(node), _tolerance(tolerance) {
     // Subscriber Setting
     _odomRecived = false;
-    _subOdom = _Node.subscribe(p_odom_topic, 20, &MoveTo::subOdomCallback, this);
+    _subOdom = _Node.subscribe(p_odom_topic, 1, &MoveTo::subOdomCallback, this);
     ros::Rate rate(2);
     while(ros::ok() && !_odomRecived){
         ros::spinOnce();
@@ -26,7 +26,7 @@ bir::MoveTo::MoveTo(ros::NodeHandle& node, std::string p_odom_topic, std::string
     _subGoal_pose = _Node.subscribe(_goalPoseTopic, 1, &MoveTo::subGoalCallback_pose, this);
     _subGoal_point = _Node.subscribe(_goalPointTopic, 1, &MoveTo::subGoalCallback_point, this);
     // Publsiher Setting
-    _pubCmdVel = _Node.advertise<geometry_msgs::Twist>(p_cmd_vel_topic, 20);
+    _pubCmdVel = _Node.advertise<geometry_msgs::Twist>(p_cmd_vel_topic, 1);
     // Class Config
     _kP[LINEAR] = 1;
     _kI[LINEAR] = 0;
@@ -58,8 +58,6 @@ void bir::MoveTo::subOdomCallback(const nav_msgs::Odometry::ConstPtr& msg){ // U
     quartenion.setW(msg->pose.pose.orientation.w);
     double row, pitch;
     tf::Matrix3x3(quartenion).getRPY(row, pitch, _pose[TH]);
-    if(_pose[TH] > 3.1415) _pose[TH] -= 3.1415*2;
-    else if(_pose[TH] < -3.1415) _pose[TH] += 3.1415*2;
 }
 
 void bir::MoveTo::setGoalTopicName(GOAL goal, std::string new_name){
@@ -106,7 +104,8 @@ bool bir::MoveTo::run() {
         double desiredAngle = atan2((_poseTarget[Y] - _pose[Y]), (_poseTarget[X] - _pose[X]));
         // Linear Velocity
         double linearVelocity = fabs(_linearVelocityPID->run(distanceToTarget));
-        velocityCommand.angular.y = desiredAngle - _pose[TH];
+        velocityCommand.angular.y = _pose[TH];
+        velocityCommand.angular.x = desiredAngle;
         if( ((desiredAngle - _pose[TH]) >= 1.5707) || ((desiredAngle - _pose[TH]) <= -1.5707) ){
             linearVelocity = 0;
         } else if(linearVelocity >= _maxLinearVelocity) {
@@ -116,6 +115,7 @@ bool bir::MoveTo::run() {
         // Angular Velocity
         _angularVelocityPID->setSetpoint(desiredAngle);
         velocityCommand.angular.z = _angularVelocityPID->run(_pose[TH]);
+        velocityCommand.linear.z = velocityCommand.angular.z;
         if(fabs(velocityCommand.angular.z) > _maxAngularVelocity) {
             if(is_negative(velocityCommand.angular.z)) velocityCommand.angular.z = -_maxAngularVelocity;
             else velocityCommand.angular.z = _maxAngularVelocity;

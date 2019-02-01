@@ -72,6 +72,7 @@ namespace bir{
             PID* _linearVelocityPID;
             double _maxAngularVelocity = 1.5;
             double _maxLinearVelocity = 1.1;
+            const float _pi = 3.141592;
             void subOdomCallback(const nav_msgs::Odometry::ConstPtr&);
             void subGoalCallback_point(const geometry_msgs::Point::ConstPtr&);
             void subGoalCallback_pose(const geometry_msgs::PoseStamped::ConstPtr&);

@@ -13,11 +13,18 @@ bir::PID::PID(double Kp, double Ki, double Kd, int interval)
     _minWindUp = -1.0;
 }
 
-double bir::PID::run(double input){
+double bir::PID::run(double input, bool angle){
     double P,I,D, PIDR;
 
     //* Proportional Action - 비례 *//
     double pidError = _pidSetPoint - (input); 
+    if(angle) {
+        if(pidError > _pi) {
+            pidError -= 2*_pi;
+        } else if (pidError < -_pi){
+            pidError += 2*_pi;
+        }
+    }
     unsigned long pidDeltaTime;
     if(!_enabled){ 
         pidDeltaTime = 0;

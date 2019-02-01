@@ -17,6 +17,7 @@ class MoveTo():
         self._tolerance = tolerance
         self._poseTarget = [0, 0]
         self._pose = [0, 0, 0]
+        self._pi = 3.141592
         #self._angularVelocityPID = PID(1, 0, 0, 0.1)
         self._end = False
         self._odomRecived = False
@@ -67,7 +68,10 @@ class MoveTo():
             velocityCommand.linear.x = 0
         else :
             desiredAngle = math.atan2((self._poseTarget[1] - self._pose[1]), (self._poseTarget[0] - self._pose[0]))
-            velocityCommand.angular.z = (desiredAngle - (self._pose[2]))
+            erroAngle = (desiredAngle - (self._pose[2]))
+            if(erroAngle > self._pi) erroAngle -= (2*(self._pi))
+            else if (erroAngle < self._pi) erroAngle += (2*(self._pi))
+            velocityCommand.angular.z = erroAngle
         
         self._cmd_velPub.publish(velocityCommand)
 

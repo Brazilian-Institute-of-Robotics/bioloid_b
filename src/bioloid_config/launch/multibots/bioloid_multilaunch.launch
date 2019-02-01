@@ -7,9 +7,9 @@
     <arg name="gazebo" default="true"/>
     <arg name="rviz" default="false"/>
     <arg name="robot_1" default="nelso"/>
-    <arg name="robot_1_pose" default="-x 3 -y 2 -z 0.3"/>
+    <arg name="robot_1_pose" default="-x -1 -y 0 -z 0.3"/>
     <arg name="robot_2" default="slender"/>
-    <arg name="robot_2_pose" default="-x -1 -y 0 -z 0.3"/>
+    <arg name="robot_2_pose" default="-x 1 -y 0 -z 0.3"/>
     <group>
         <param name="tf_prefix" value="$(arg robot_1)"/>
         <!-- Launch Pubs -->

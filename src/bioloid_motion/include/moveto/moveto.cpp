@@ -86,7 +86,7 @@ void bir::MoveTo::setLimits(bool velocityType, double value){
     else _maxLinearVelocity = value;
 }
 
-void bir::MoveTo::goTo(double x, double y){
+inline void bir::MoveTo::goTo(double x, double y){
     _poseTarget[X] = x;
     _poseTarget[Y] = y;
     _end = false;
@@ -97,30 +97,27 @@ bool bir::MoveTo::run() {
     geometry_msgs::Twist velocityCommand;
     double distanceToTarget = sqrt(pow((_poseTarget[X] - _pose[X]),2) + pow((_poseTarget[Y] - _pose[Y]),2));
 
-    if(distanceToTarget <= _tolerance) {
-        _end = true;
-        velocityCommand.angular.z = velocityCommand.linear.x = 0;
-    } else {
+   
         double desiredAngle = atan2((_poseTarget[Y] - _pose[Y]), (_poseTarget[X] - _pose[X]));
         // Linear Velocity
         double linearVelocity = fabs(_linearVelocityPID->run(distanceToTarget));
-        velocityCommand.angular.y = _pose[TH];
-        velocityCommand.angular.x = desiredAngle;
-        if( ((desiredAngle - _pose[TH]) >= 1.5707) || ((desiredAngle - _pose[TH]) <= -1.5707) ){
+        if( ((desiredAngle - _pose[TH]) >= _pi) || ((desiredAngle - _pose[TH]) <= -_pi) ){
             linearVelocity = 0;
         } else if(linearVelocity >= _maxLinearVelocity) {
             linearVelocity = _maxLinearVelocity;
         }
+        velocityCommand.angular.y = _pose[TH];
+        velocityCommand.angular.x = desiredAngle;       
         velocityCommand.linear.x = linearVelocity;
         // Angular Velocity
         _angularVelocityPID->setSetpoint(desiredAngle);
-        velocityCommand.angular.z = _angularVelocityPID->run(_pose[TH]);
+        velocityCommand.angular.z = _angularVelocityPID->run(_pose[TH], true);
         velocityCommand.linear.z = velocityCommand.angular.z;
         if(fabs(velocityCommand.angular.z) > _maxAngularVelocity) {
             if(is_negative(velocityCommand.angular.z)) velocityCommand.angular.z = -_maxAngularVelocity;
             else velocityCommand.angular.z = _maxAngularVelocity;
         }
-    }
+   
     _pubCmdVel.publish(velocityCommand);
     if (_end) return true;
     return false;

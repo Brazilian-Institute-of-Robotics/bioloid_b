@@ -28,10 +28,12 @@
   
 ## How to Use
 ### How to launch a single robot.
-#### Without Joy
-> roslaunch bioloid_config bioloid_launch.launch
-#### With Joy
-> roslaunch bioloid_config bioloid_launch.launch joy:=true
->> by default, joy deviced is named (js0) , with change is needed, replance at (rosed bioloid_joy bioloid_joy.launch ) or (rosed bioloid_config bioloid_launch) and add device arg with the real device name.
-
-> Based on https://github.com/MathieuR
+####  Without Joy and MoveTo class
+` roslaunch bioloid_config bioloid_launch.launch `
+####  With Joy
+` roslaunch bioloid_config bioloid_launch.launch joy:=true `
+>> By default, joy deviced is named (js0) , if change is needed, replance at (rosed bioloid_joy bioloid_joy.launch ) or (rosed bioloid_config bioloid_launch) and add device arg with the real device name.
+#### With MoveTo class
+` roslaunch bioloid_config bioloid_launch.launch moveto:=true `
+### About MoveTo class
+> Based on @https://github.com/MathieuR

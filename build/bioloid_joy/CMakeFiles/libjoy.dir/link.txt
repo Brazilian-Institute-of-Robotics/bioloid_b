@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC   -shared -Wl,-soname,liblibjoy.so -o /home/teo/Documentos/nelso/devel/lib/liblibjoy.so CMakeFiles/libjoy.dir/include/libjoy/libjoy.cpp.o 

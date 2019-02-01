@@ -1,0 +1,8 @@
+prefix=/home/teo/Documentos/nelso/install
+
+Name: bioloid_config
+Description: Description of bioloid_config
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/teo/Documentos/nelso/install/lib 
+Requires: 

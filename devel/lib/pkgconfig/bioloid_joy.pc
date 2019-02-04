@@ -1,8 +1,0 @@
-prefix=/home/teo/Documentos/nelso/devel
-
-Name: bioloid_joy
-Description: Description of bioloid_joy
-Version: 0.0.0
-Cflags: -I/home/teo/Documentos/nelso/src/bioloid_joy/include
-Libs: -L/home/teo/Documentos/nelso/devel/lib -llibjoy
-Requires: geometry_msgs roscpp sensor_msgs

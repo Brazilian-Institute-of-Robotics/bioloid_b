@@ -40,6 +40,41 @@
     <!-- <xacro:include filename="$(find bioloid_typea_description)/std_parts.xacro" ns="std_parts"/> -->
     <xacro:include filename="$(find bioloid_typea_description)/std_parts.xacro"/>
 
+     <xacro:property name="camera_link" value="0.01" />
+     <xacro:property name="height_camera" value="0.2"/>
+     <xacro:property name="axel_offset" value="0.05"/>
+    
+    <!-- Camera -->
+    <joint name="camera_joint" type="fixed">
+        <axis xyz="0 1 0" />
+        <origin xyz="${camera_link} 0 ${height_camera - axel_offset*2}" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="camera_link"/>
+    </joint>
+
+    <link name="camera_link">
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+        <box size="${camera_link} ${camera_link} ${camera_link}"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+        <box size="${camera_link} ${camera_link} ${camera_link}"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+
+        <inertial>
+            <mass value="1e-5" />
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+        </inertial>
+    </link>
+
     <!-- IMU -->
     <joint name="imu_to_base_joint" type="fixed">
         <axis xyz="1 0 0"/>

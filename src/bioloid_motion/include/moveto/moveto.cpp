@@ -28,7 +28,7 @@ bir::MoveTo::MoveTo(ros::NodeHandle& node, std::string p_odom_topic, std::string
     // Publsiher Setting
     _pubCmdVel = _Node.advertise<geometry_msgs::Twist>(p_cmd_vel_topic, 1);
     // Class Config
-    _kP[LINEAR] = 1;
+    _kP[LINEAR] = 0.6;
     _kI[LINEAR] = 0;
     _kI[LINEAR] = 0;
     
@@ -92,12 +92,17 @@ inline void bir::MoveTo::goTo(double x, double y){
     _end = false;
 }
 
-bool bir::MoveTo::run() {
+bool bir::MoveTo::getEnd(){
+    return _end;
+}
 
+bool bir::MoveTo::run() {
     geometry_msgs::Twist velocityCommand;
     double distanceToTarget = sqrt(pow((_poseTarget[X] - _pose[X]),2) + pow((_poseTarget[Y] - _pose[Y]),2));
-
-   
+    if(distanceToTarget < _tolerance){
+        velocityCommand.angular.z = velocityCommand.linear.x = 0;
+        _end = true;
+    } else {
         double desiredAngle = atan2((_poseTarget[Y] - _pose[Y]), (_poseTarget[X] - _pose[X]));
         // Linear Velocity
         double linearVelocity = fabs(_linearVelocityPID->run(distanceToTarget));
@@ -105,9 +110,7 @@ bool bir::MoveTo::run() {
             linearVelocity = 0;
         } else if(linearVelocity >= _maxLinearVelocity) {
             linearVelocity = _maxLinearVelocity;
-        }
-        velocityCommand.angular.y = _pose[TH];
-        velocityCommand.angular.x = desiredAngle;       
+        }     
         velocityCommand.linear.x = linearVelocity;
         // Angular Velocity
         _angularVelocityPID->setSetpoint(desiredAngle);
@@ -117,9 +120,9 @@ bool bir::MoveTo::run() {
             if(is_negative(velocityCommand.angular.z)) velocityCommand.angular.z = -_maxAngularVelocity;
             else velocityCommand.angular.z = _maxAngularVelocity;
         }
+    }
    
     _pubCmdVel.publish(velocityCommand);
     if (_end) return true;
     return false;
-    
 }

@@ -53,6 +53,7 @@ namespace bir{
                 Sample: ros::Timer timer = Node.createTimer(ros::Duration(1/{Frequency}), boost::bind(&bir::MoveTo::run, &{Class Instance}));
             */               
             bool run();
+            bool getEnd();
             enum {ANGULAR, LINEAR};
         private:
             ros::NodeHandle _Node;

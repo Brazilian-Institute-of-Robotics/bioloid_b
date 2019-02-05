@@ -10,7 +10,7 @@ from tf.transformations import euler_from_quaternion
 
 class MoveTo():
 
-    def __init__(self, odom_topic, cmd_vel_topic, tolerance=0.05):
+    def __init__(self, odom_topic, cmd_vel_topic, tolerance=0.1):
         # Internal Variables
         self._odomTopic = odom_topic
         self._cmd_velTopic = cmd_vel_topic
@@ -69,8 +69,11 @@ class MoveTo():
         else :
             desiredAngle = math.atan2((self._poseTarget[1] - self._pose[1]), (self._poseTarget[0] - self._pose[0]))
             erroAngle = (desiredAngle - (self._pose[2]))
-            if(erroAngle > self._pi) erroAngle -= (2*(self._pi))
-            else if (erroAngle < self._pi) erroAngle += (2*(self._pi))
+            velocityCommand.angular.y = erroAngle
+            if(erroAngle > self._pi): 
+                erroAngle -= (2*(self._pi))
+            elif (erroAngle < -self._pi): 
+                erroAngle += (2*(self._pi))
             velocityCommand.angular.z = erroAngle
         
         self._cmd_velPub.publish(velocityCommand)

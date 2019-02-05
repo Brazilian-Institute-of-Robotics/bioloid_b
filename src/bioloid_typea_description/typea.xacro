@@ -41,7 +41,7 @@
     <xacro:include filename="$(find bioloid_typea_description)/std_parts.xacro"/>
 
      <xacro:property name="camera_link" value="0.01" />
-     <xacro:property name="height_camera" value="0.2"/>
+     <xacro:property name="height_camera" value="0.157"/>
      <xacro:property name="axel_offset" value="0.05"/>
     
     <!-- Camera -->
@@ -63,9 +63,9 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-        <box size="${camera_link} ${camera_link} ${camera_link}"/>
+                <box size="${camera_link} ${camera_link} ${camera_link}"/>
+                <!-- <mesh filename="file://$(find bioloid_typea_description)/assets/cad/camera.dae" scale="0.01 0.01 0.01"/> -->
             </geometry>
-            <material name="red"/>
         </visual>
 
         <inertial>

@@ -41,6 +41,6 @@
 5. Tips
 
     - First Instance is usefull when is create as a class's member.
-    
+    - After create img_msg remeber to include the header before publish.
 
 > Etevaldo A. Cardoso Neto ( Teo Cardoso )

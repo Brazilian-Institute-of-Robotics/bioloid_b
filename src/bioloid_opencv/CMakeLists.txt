@@ -8,14 +8,18 @@ project(bioloid_opencv)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  cv_bridge  
   geometry_msgs
+  image_transport
   nav_msgs
   roscpp
   rospy
-  std_msgs
+  std_msgs  
   tf
   tf2
 )
+
+find_package(OpenCV REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -107,10 +111,10 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES bioloid_opencv
-#  CATKIN_DEPENDS geometry_msgs nav_msgs roscpp rospy sdt_msgs tf tf2
-#  DEPENDS system_lib
+  INCLUDE_DIRS include
+  LIBRARIES bioloid_opencv
+  CATKIN_DEPENDS geometry_msgs nav_msgs roscpp rospy sdt_msgs tf tf2
+  DEPENDS system_lib
 )
 
 ###########
@@ -120,14 +124,14 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
-# add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/bioloid_opencv.cpp
-# )
+add_library(image_converter
+  include/image_converter/image_converter.cpp
+)
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -137,7 +141,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/bioloid_opencv_node.cpp)
+add_executable(${PROJECT_NAME}_node src/main.cpp include/image_converter/image_converter.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -150,9 +154,11 @@ include_directories(
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(${PROJECT_NAME}_node
-#   ${catkin_LIBRARIES}
-# )
+target_link_libraries(${PROJECT_NAME}_node
+  ${catkin_LIBRARIES}
+  ${OpenCV_LIBS}
+  image_converter
+)
 
 #############
 ## Install ##

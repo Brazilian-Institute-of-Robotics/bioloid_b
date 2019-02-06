@@ -34,17 +34,18 @@ public:
 
   void imageCb(const sensor_msgs::ImageConstPtr& msg)
   {
-    cv::Mat imagem = *(ImgConv)*(msg);
+    cv::Mat image = *(ImgConv)*(msg);
     // Draw an example circle on the video stream
-    if (imagem.rows > 60 && imagem.cols > 60)
-      cv::circle(imagem, cv::Point(50, 50), 10, CV_RGB(255,0,0));
+    if (image.rows > 60 && image.cols > 60)
+      cv::circle(image, cv::Point(50, 50), 10, CV_RGB(255,0,0));
 
     // Update GUI Window
-    cv::imshow(OPENCV_WINDOW, imagem);
+    cv::imshow(OPENCV_WINDOW, image);
     cv::waitKey(3);
 
     // Output modified video stream
-    image_pub_.publish(*(ImgConv)*imagem);
+    sensor_msgs::ImagePtr img_msg = *(ImgConv)*image;
+    image_pub_.publish(img_msg);
   }
 };
 

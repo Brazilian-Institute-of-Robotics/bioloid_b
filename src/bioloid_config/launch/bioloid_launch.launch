@@ -4,6 +4,7 @@
     <arg name="moveto" default="false"/>
     <arg name="gazebo" default="true"/>
     <arg name="rviz" default="false"/>
+    <arg name="gui" default="true"/>
     <!-- Launch Pubs -->
     <include file="$(find bioloid_config)/launch/bioloid_pubs.launch"/>
     <!-- Joy Launch -->
@@ -11,7 +12,9 @@
     <!-- Move To Launch -->
     <include if="$(arg moveto)" file="$(find bioloid_config)/launch/bioloid_moveto.launch" />
     <!-- Launch Gazebo Spawn -->
-    <include if="$(arg gazebo)" file="$(find bioloid_config)/launch/bioloid_gazebo.launch"/>
+    <include if="$(arg gazebo)" file="$(find bioloid_config)/launch/bioloid_gazebo.launch">
+        <arg name="gui" value="$(arg gui)"/>
+    </include>
     <!-- Launch Controllers -->
     <include file="$(find bioloid_config)/launch/bioloid_controllers.launch"/>
     <!-- Launch Motion -->

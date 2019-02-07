@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(bioloid_opencv)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -112,9 +112,9 @@ find_package(OpenCV REQUIRED)
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   INCLUDE_DIRS include
-  LIBRARIES bioloid_opencv
+  LIBRARIES bioloid_opencv image_converter color_detect
   CATKIN_DEPENDS geometry_msgs nav_msgs roscpp rospy sdt_msgs tf tf2
-  DEPENDS system_lib
+# DEPENDS system_lib
 )
 
 ###########
@@ -133,6 +133,9 @@ add_library(image_converter
   include/image_converter/image_converter.cpp
 )
 
+add_library(color_detect
+  include/color_detect/color_detect.cpp
+)
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
@@ -158,6 +161,7 @@ target_link_libraries(${PROJECT_NAME}_node
   ${catkin_LIBRARIES}
   ${OpenCV_LIBS}
   image_converter
+  color_detect
 )
 
 #############

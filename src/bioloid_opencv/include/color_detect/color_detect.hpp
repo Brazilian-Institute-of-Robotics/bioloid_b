@@ -6,26 +6,33 @@
 
 namespace bir {
     class ColorDetect {
+
         public:
-            explicit ColorDetect(cv::Mat&);
-            explicit ColorDetect(cv::Mat&, std::vector<u_int8_t> min_limit, std::vector<u_int8_t> max_limit);
-            virtual ~ColorDetect();
+            explicit ColorDetect();
+            explicit ColorDetect(std::vector<u_int8_t> min_limit, std::vector<u_int8_t> max_limit);
+            ~ColorDetect();
 
             bool detected();
-            void setRange(int, std::vector<u_int8_t>);
-            enum {MIN, MAX};
-            cv::Mat& operator=(cv::Mat&);
-            void operator()();
             bool operator()(cv::Mat&);
-            bool operator()(cv::Mat&, std::vector<u_int8_t> min_limit, std::vector<u_int8_t> max_limit);
+            void setRange(int, std::vector<u_int8_t>);
+            void setArea(float);
+            cv::Mat drawContours(cv::Mat img);
+            cv::Mat drawContours(cv::Mat img, std::string, cv::Scalar);
+            u_int16_t numberOfObjects();
+            
+            enum {MIN, MAX};
+
         private:
             float _areaLimit;
-            float _numberOfObjects;
+            u_int16_t _numberOfObjects;
             cv::Mat _image;
             cv::Scalar _minRange, _maxRange;
-            cv::Mat foundRange();
-            std::vector<std::vector<cv::Point>> findContours();
+            std::vector<std::vector<cv::Point>> _cnt;
+            std::vector<cv::Vec4i> _hie;
+            void foundRange();
+            void findContours();
             void findDetails();
+            void setImage(cv::Mat&);
             void clean();
             bool _detected;
 

@@ -43,7 +43,7 @@ inline void bir::ColorDetect::setImage(cv::Mat& image) {
 
 inline void bir::ColorDetect::foundRange(){
     cv::inRange(_image, _minRange, _maxRange, _image);
-    //cv::imshow("teste", _image);
+    // COLOR -> BLACK/WHITE
 }
 
 inline void bir::ColorDetect::findContours(){
@@ -52,12 +52,12 @@ inline void bir::ColorDetect::findContours(){
     cv::findContours(_image, _cnt, _hie, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, cv::Point(0,5));
 }
 
-inline void bir::ColorDetect::clean(){
+inline void bir::ColorDetect::clean() {
     _detected = false;
     _numberOfObjects = 0;
 }
 
-void bir::ColorDetect::findDetails(){
+void bir::ColorDetect::findDetails() {
     for(int index = 0; index < _cnt.size(); index++){
         if(cv::contourArea(_cnt[index]) >= _areaLimit){
             _detected = true;
@@ -102,6 +102,7 @@ cv::Mat bir::ColorDetect::drawContours(cv::Mat img, std::string text, cv::Scalar
     }
     return img;
 }
+
 
 
 

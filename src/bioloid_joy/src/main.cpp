@@ -11,13 +11,9 @@ int main(int argc, char** argv){
     ros::ServiceClient unpauseClient = node.serviceClient<std_srvs::Empty>("/gazebo/unpause_physics");
     ros::Rate rate(50);
     ROS_INFO("Joy Node Started");
-    bool paused = true;
+    std_srvs::Empty msg;
+    unpauseClient.call(msg);
     while(ros::ok()){
-        if(Controller.get().button.start && paused) {
-            paused = false;
-            std_srvs::Empty msg;
-            unpauseClient.call(msg);
-        }
         geometry_msgs::Twist msg;
         float linear = 0.00, angular = 0.00;
         if(Controller.get().button.A) {

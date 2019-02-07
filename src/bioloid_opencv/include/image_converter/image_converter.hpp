@@ -27,6 +27,7 @@ namespace bir {
                 raw = Transformation * cv;
             */
             sensor_msgs::Image::Ptr operator*(cv::Mat& imagem_openCV);
+        
         private:
             std::string _encoding;
             cv::Mat convertImage(const sensor_msgs::ImageConstPtr&);

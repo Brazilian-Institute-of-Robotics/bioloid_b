@@ -1,4 +1,5 @@
 # Bioloid Type A
+development platform for assimilation of robotic concepts
 
 ## Folders
 - src/

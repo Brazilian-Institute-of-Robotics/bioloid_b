@@ -15,7 +15,11 @@ bir::ImageConverter::~ImageConverter() { }
 
 cv::Mat bir::ImageConverter::convertImage(const sensor_msgs::ImageConstPtr& imagem_ros){
     cv_bridge::CvImagePtr ptr_imagem_cv;
-    try { ptr_imagem_cv = cv_bridge::toCvCopy(imagem_ros, _encoding); }
+    try { 
+        ptr_imagem_cv = cv_bridge::toCvCopy(imagem_ros, _encoding); 
+        cv::cvtColor(ptr_imagem_cv->image, ptr_imagem_cv->image, CV_BGR2HSV);
+        cv::cvtColor(ptr_imagem_cv->image, ptr_imagem_cv->image, CV_HSV2BGR);
+    }
     catch(cv_bridge::Exception& erro) {
         ROS_ERROR("CV Bridge exception: %s", erro.what());
         cv::Mat empty_mat;

@@ -4,25 +4,32 @@
 #include <opencv2/aruco.hpp>
 #include <opencv2/aruco/charuco.hpp>
 #include <opencv2/aruco/dictionary.hpp>
+#include <aruco_identification/aruco_identification.hpp>
 #include <vector>
+
 int main() {
     cv::Mat img;
+    bir::Aruco tagRead_5X5(cv::aruco::DICT_4X4_250);
+    bir::Aruco::marks mark;
+    
     try{
-        img = cv::imread("/home/teo/Documentos/nelso/src/bioloid_opencv/src/mark_w_s.png");
-        const cv::Ptr<cv::aruco::DetectorParameters> parameters = cv::aruco::DetectorParameters::create(); 
-        cv::Mat inputImage; img.copyTo(inputImage);
-        std::vector<int> markerIds; 
-        std::vector<std::vector<cv::Point2f> > markerCorners, rejectedCandidates; 
-        const cv::Ptr<cv::aruco::Dictionary> dictionary = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_4X4_250); 
-        cv::aruco::detectMarkers(inputImage, dictionary, markerCorners, markerIds, parameters, rejectedCandidates); 
-        cv::aruco::drawDetectedMarkers(inputImage, markerCorners, markerIds);
-        cv::imshow("read", inputImage);
+        img = cv::imread("/home/teo/.gazebo/models/marker0/materials/textures/teste.png");
+        cv::imshow("tag", img);
+        cv::waitKey(0);
+        mark = tagRead_5X5(img);
     } catch (cv::Exception& erros) {
         static const char* error = erros.what();
         ROS_ERROR(error);
         return (-1);
     }
-    cv::imshow("img", img);
-    cv::waitKey(0);
+
+    if(mark.size > 0){
+        for (int index = 0; index < mark.size ; index++)
+            std::cout << "ID Found: " << mark.id[index] << "\n";
+    } else {
+        std::cout << "ID Not Found\n";
+    }
+
     cv::destroyAllWindows();
+
 }

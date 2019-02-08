@@ -112,7 +112,7 @@ find_package(OpenCV REQUIRED)
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   INCLUDE_DIRS include
-  LIBRARIES bioloid_opencv image_converter color_detect
+  LIBRARIES bioloid_opencv image_converter color_detect aruco_identification
   CATKIN_DEPENDS geometry_msgs nav_msgs roscpp rospy sdt_msgs tf tf2
 # DEPENDS system_lib
 )
@@ -136,6 +136,10 @@ add_library(image_converter
 add_library(color_detect
   include/color_detect/color_detect.cpp
 )
+
+add_library(aruco_identification
+  include/aruco_identification/aruco_identification.cpp
+)
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
@@ -144,8 +148,8 @@ add_library(color_detect
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(${PROJECT_NAME}_node src/main.cpp include/image_converter/image_converter.cpp)
-add_executable(${PROJECT_NAME}_mark src/marks.cpp include/image_converter/image_converter.cpp)
+add_executable(${PROJECT_NAME}_node src/main.cpp include/image_converter/image_converter.cpp include/aruco_identification/aruco_identification.cpp)
+add_executable(${PROJECT_NAME}_mark src/marks.cpp include/image_converter/image_converter.cpp include/aruco_identification/aruco_identification.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -168,6 +172,7 @@ target_link_libraries(${PROJECT_NAME}_mark
   ${catkin_LIBRARIES}
   ${OpenCV_LIBS}
   image_converter
+  aruco_identification
 )
 
 #############

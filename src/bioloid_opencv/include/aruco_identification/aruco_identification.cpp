@@ -4,12 +4,15 @@
 #include <opencv2/aruco/charuco.hpp>
 #include <opencv2/aruco/dictionary.hpp>
 #include <vector>
-#include <iostream>
 
 #include "aruco_identification.hpp"
 
 bir::Aruco::Aruco(int dictionary) {
-    if(dictionary > 16) throw ("Default Dictionary not Found");
+    if(dictionary > cv::aruco::DICT_ARUCO_ORIGINAL) {
+      dictionary = cv::aruco::DICT_ARUCO_ORIGINAL;
+      throw ("Default Dictionary not Found. \n Set to Aruco Original. ");
+    }
+
     setPredefinedDictionary(dictionary);
     
     _parameters = cv::aruco::DetectorParameters::create();
@@ -31,7 +34,12 @@ void bir::Aruco::setParameters(cv::Ptr<cv::aruco::DetectorParameters> parameters
     _parameters = parameters;
 }
 
-bir::Aruco::marks bir::Aruco::operator()(cv::Mat img) {
+bool bir::Aruco::marks::operator==(const int& id) {
+    std::vector<int>::iterator index = std::find(this->id.begin(), this->id.end(), (id));
+    return (index != this->id.end());
+}
+
+bir::Aruco::marks bir::Aruco::operator()(const cv::Mat& img) {
     marks markOutput;
     if (!img.empty()) {
         cv::aruco::detectMarkers(img, _dictionary, _corners, _ids, _parameters, _rejected); 

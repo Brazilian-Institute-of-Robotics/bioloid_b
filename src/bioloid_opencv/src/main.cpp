@@ -48,10 +48,14 @@ class OpenCV {
             goalPub = nh_.advertise<geometry_msgs::Point>("/typea/goal_point", 1);
             
             cv::namedWindow(OPENCV_WINDOW, CV_WINDOW_FULLSCREEN);
-      }
+        }
 
     ~OpenCV() {
         cv::destroyWindow(OPENCV_WINDOW);
+        delete ImgConv;
+        delete tagRead;
+        delete BlueDet;
+        delete OranDet;
     }
 
     void imageCb(const sensor_msgs::ImageConstPtr& msg) {
@@ -60,10 +64,9 @@ class OpenCV {
         (*BlueDet)(image);
         (*OranDet)(image);
 
-        if(mark.size > 0){
+        if(mark.size > 0) {
             cv::aruco::drawDetectedMarkers(image, mark.corner, mark.id);
-            std::vector<int>::iterator index = std::find(mark.id.begin(), mark.id.end(), 1);
-            if(index != mark.id.end()){
+            if(mark == 1) {
                 geometry_msgs::Point goal;
                 goal.x = 5;
                 goal.y = -5;

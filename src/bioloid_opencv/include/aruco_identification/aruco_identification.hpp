@@ -17,12 +17,14 @@ namespace bir {
                 std::vector<std::vector<cv::Point2f>> corner;
                 std::vector<std::vector<cv::Point2f>> rejected;
                 int size;
+
+                bool operator ==(const int& id);
             }; 
                        
             void setParameters(cv::Ptr<cv::aruco::DetectorParameters>);
             void setPredefinedDictionary(int);
             void setCustomDictionary(int, int);
-            marks operator()(cv::Mat);
+            marks operator()(const cv::Mat& );
 
         private:
             cv::Ptr<cv::aruco::DetectorParameters> _parameters;

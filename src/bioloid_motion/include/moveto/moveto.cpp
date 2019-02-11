@@ -38,7 +38,7 @@ bir::MoveTo::MoveTo(ros::NodeHandle& node, std::string p_odom_topic, std::string
     _angularVelocityPID = new PID(_kP[ANGULAR], _kI[ANGULAR], _kD[ANGULAR], 10);
     _linearVelocityPID = new PID(_kP[LINEAR], _kI[LINEAR], _kD[LINEAR], 10);
     _linearVelocityPID->setSetpoint(0.00);
-    _end = false;
+    _end = true;
 }
 
 void bir::MoveTo::subOdomCallback(const nav_msgs::Odometry::ConstPtr& msg){ // Update _pose Variable

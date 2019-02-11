@@ -1,14 +1,18 @@
 #include <ros/ros.h>
 #include <libjoy/libjoy.hpp>
 #include <geometry_msgs/Twist.h>
+#include <std_srvs/Empty.h>
 
 int main(int argc, char** argv){
     ros::init(argc, argv, "joy_interface");
     ros::NodeHandle node;
     ros::Publisher PubCmdVel = node.advertise<geometry_msgs::Twist>("cmd_vel", 2);
     bir::JoyController Controller(node,"");
+    ros::ServiceClient unpauseClient = node.serviceClient<std_srvs::Empty>("/gazebo/unpause_physics");
     ros::Rate rate(50);
     ROS_INFO("Joy Node Started");
+    std_srvs::Empty msg;
+    unpauseClient.call(msg);
     while(ros::ok()){
         geometry_msgs::Twist msg;
         float linear = 0.00, angular = 0.00;

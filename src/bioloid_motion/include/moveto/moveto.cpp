@@ -12,14 +12,8 @@
 bir::MoveTo::MoveTo(ros::NodeHandle& node, std::string p_odom_topic, std::string p_cmd_vel_topic, double tolerance): _Node(node), _tolerance(tolerance) {
     // Subscriber Setting
     _odomRecived = false;
+    ROS_WARN("Waiting for Odometry Topic.");
     _subOdom = _Node.subscribe(p_odom_topic, 1, &MoveTo::subOdomCallback, this);
-    ros::Rate rate(2);
-    while(ros::ok() && !_odomRecived){
-        ros::spinOnce();
-        ROS_INFO_ONCE("Odom Topic isn't connect.. Retrying");
-        rate.sleep();
-    }
-    ROS_INFO("Odom Topic Connected");
     // Goal Subscriber Setting
     _goalPoseTopic = "/move_base_simple/goal";
     _goalPointTopic = "goal_point";
@@ -46,6 +40,8 @@ void bir::MoveTo::subOdomCallback(const nav_msgs::Odometry::ConstPtr& msg){ // U
         _odomRecived = true;
         _poseTarget[X] = msg->pose.pose.position.x;
         _poseTarget[Y] = msg->pose.pose.position.y;
+        
+        ROS_INFO("Odom Topic Connected");
     }
     
     _pose[X] = msg->pose.pose.position.x;
@@ -102,7 +98,7 @@ bool bir::MoveTo::run() {
     if(distanceToTarget < _tolerance){
         velocityCommand.angular.z = velocityCommand.linear.x = 0;
         _end = true;
-    } else {
+    } else if(_odomRecived) {
         double desiredAngle = atan2((_poseTarget[Y] - _pose[Y]), (_poseTarget[X] - _pose[X]));
         // Linear Velocity
         double linearVelocity = fabs(_linearVelocityPID->run(distanceToTarget));

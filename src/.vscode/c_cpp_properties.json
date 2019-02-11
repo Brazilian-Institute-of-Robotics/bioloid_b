@@ -8,7 +8,8 @@
             "includePath": [
                 "/opt/ros/kinetic/include",
                 "/home/teo/Documentos/nelso/src/bioloid_motion/include",
-                "/usr/include"
+                "/usr/include",
+                "${workspaceFolder}/bioloid_opencv/include"
             ],
             "name": "Linux",
             "intelliSenseMode": "gcc-x64",

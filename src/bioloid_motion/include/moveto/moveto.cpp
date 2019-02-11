@@ -93,6 +93,8 @@ bool bir::MoveTo::getEnd(){
 }
 
 bool bir::MoveTo::run() {
+    if (_end) return true;
+    
     geometry_msgs::Twist velocityCommand;
     double distanceToTarget = sqrt(pow((_poseTarget[X] - _pose[X]),2) + pow((_poseTarget[Y] - _pose[Y]),2));
     if(distanceToTarget < _tolerance){

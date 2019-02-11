@@ -39,6 +39,16 @@ bool bir::Aruco::marks::operator==(const int& id) {
     return (index != this->id.end());
 }
 
+int bir::Aruco::marks::operator[](const int& id) {
+    std::vector<int>::iterator iterator = std::find(this->id.begin(), this->id.end(), (id));
+    if(iterator != this->id.end()) {
+        return std::distance(this->id.begin(), iterator);;
+    } else {
+        return (-1);
+    }
+}
+
+
 bir::Aruco::marks bir::Aruco::operator()(const cv::Mat& img) {
     marks markOutput;
     if (!img.empty()) {

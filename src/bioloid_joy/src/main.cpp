@@ -11,20 +11,32 @@ int main(int argc, char** argv){
     ros::ServiceClient unpauseClient = node.serviceClient<std_srvs::Empty>("/gazebo/unpause_physics");
     ros::Rate rate(50);
     ROS_INFO("Joy Node Started");
-    std_srvs::Empty msg;
-    unpauseClient.call(msg);
-    while(ros::ok()){
-        geometry_msgs::Twist msg;
-        float linear = 0.00, angular = 0.00;
-        if(Controller.get().button.A) {
-            linear = 0.5;
-            if(Controller.get().axes.RT <= 0.00){
+
+    bool sending = false;
+    while(ros::ok()) {
+        
+        if(Controller.get().button.A || (Controller.get().axes.horizontal_L_stick > 0.1) || (Controller.get().axes.horizontal_L_stick < -0.1)) {
+            float linear = 0.00, angular = 0.00;
+            geometry_msgs::Twist msg;
+            if(Controller.get().button.A) {
+                linear = 0.5;
+            }
+            if(Controller.get().axes.RT <= 0.00) {
                 linear += -(Controller.get().axes.RT)*1.5;
             }
+            msg.linear.x = linear;
+            msg.angular.z = Controller.get().axes.horizontal_L_stick;
+            PubCmdVel.publish(msg);
+            sending = true;
+
+        } else if(sending) {
+            geometry_msgs::Twist msg;
+            msg.linear.x = 0;
+            msg.angular.z = 0;
+            PubCmdVel.publish(msg);
+            sending = false;
         }
-        msg.linear.x = linear;
-        msg.angular.z = Controller.get().axes.horizontal_L_stick;
-        PubCmdVel.publish(msg);
+
         ros::spinOnce();
         rate.sleep();
     }

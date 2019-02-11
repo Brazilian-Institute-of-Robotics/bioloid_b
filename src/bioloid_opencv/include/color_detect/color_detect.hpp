@@ -10,7 +10,7 @@ namespace bir {
         public:
             explicit ColorDetect();
             explicit ColorDetect(std::vector<u_int8_t> min_limit, std::vector<u_int8_t> max_limit);
-            ~ColorDetect();
+            virtual ~ColorDetect();
 
             bool detected();
             bool operator()(cv::Mat&);

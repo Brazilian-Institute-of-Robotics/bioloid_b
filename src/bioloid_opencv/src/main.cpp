@@ -12,8 +12,6 @@
 #include <opencv2/aruco/dictionary.hpp>
 #include <geometry_msgs/Point.h>
 
-
-
 static const std::string OPENCV_WINDOW = "Image window";
 
 class OpenCV {

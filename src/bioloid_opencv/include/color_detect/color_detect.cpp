@@ -19,6 +19,10 @@ bir::ColorDetect::ColorDetect(std::vector<u_int8_t> min_limit, std::vector<u_int
     clean();
 }
 
+bir::ColorDetect::~ColorDetect() { 
+    
+}
+
 void bir::ColorDetect::setRange(int option, std::vector<u_int8_t> limit){
     if(option == MIN){
         _minRange = cv::Scalar(limit[0], limit[1], limit[2]);

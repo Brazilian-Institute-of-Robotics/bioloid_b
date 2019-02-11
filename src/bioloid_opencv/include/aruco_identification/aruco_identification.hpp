@@ -19,6 +19,7 @@ namespace bir {
                 int size;
 
                 bool operator ==(const int& id);
+                int operator[](const int& id);
             }; 
                        
             void setParameters(cv::Ptr<cv::aruco::DetectorParameters>);

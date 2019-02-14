@@ -29,13 +29,15 @@
     </gazebo>
     <gazebo reference="camera_link">
         <sensor type="camera" name="camera">
-            <update_rate>30.0</update_rate>
+            <update_rate>22.7</update_rate>
             <camera name="head">
                 <horizontal_fov>1.3962634</horizontal_fov>
                 <image>
-                  <width>800</width>
-                  <height>800</height>
-                  <format>R8G8B8</format>
+                    <!--<width>2592</width>
+                    <height>2048</height>-->
+                    <width>480</width>
+                    <height>380</height>
+                    <format>R8G8B8</format>
                 </image>
                 <clip>
                   <near>0.02</near>

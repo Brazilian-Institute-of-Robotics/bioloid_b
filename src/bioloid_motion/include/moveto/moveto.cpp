@@ -63,6 +63,7 @@ void bir::MoveTo::setGoalTopicName(GOAL goal, std::string new_name){
         _goalPoseTopic = new_name;
     }
 }
+
 void bir::MoveTo::subGoalCallback_pose(const geometry_msgs::PoseStamped::ConstPtr& pose){
     goTo(pose->pose.position.x, pose->pose.position.y);
     ROS_INFO("Goal Recived: (%f,%f)", _poseTarget[X], _poseTarget[Y]);

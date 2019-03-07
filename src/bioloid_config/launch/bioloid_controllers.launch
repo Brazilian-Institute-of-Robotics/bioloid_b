@@ -6,7 +6,7 @@
     <!-- Load controller manager -->
     <node name="control_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="--namespace=/typea
     joint_state_controller
-    
+
 	l_shoulder_swing_joint_position_controller
     l_shoulder_lateral_joint_position_controller
     l_elbow_joint_position_controller
